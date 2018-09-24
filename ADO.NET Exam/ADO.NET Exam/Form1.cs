@@ -18,6 +18,7 @@ namespace ADO.NET_Exam
         public int CurrentPage { get; set; } = 0;
         public int MaxPages { get; set; }
 
+
         public Form1()
         {
             InitializeComponent();
@@ -91,7 +92,7 @@ namespace ADO.NET_Exam
                         Panel elem = new Panel();
                         elem.Size = new Size(1212, 59);
                         elem.BackColor = Color.FromArgb(240, 240, 240);
-                        elem.Location = new Point(50, startHeight);
+                        elem.Location = new Point(30, startHeight);
 
                         startHeight += marginTop;
 
@@ -217,6 +218,14 @@ namespace ADO.NET_Exam
             {
                 CurrentPage -= 1;
                 ShowPageOfBooks();
+            }
+        }
+
+        private void materialSingleLineTextField1_TextChanged(object sender, EventArgs e)
+        {
+            if (Title_radio.Checked)
+            {
+
             }
         }
     } 

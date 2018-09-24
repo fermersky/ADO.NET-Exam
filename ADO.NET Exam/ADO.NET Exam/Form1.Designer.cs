@@ -40,7 +40,7 @@
             this.materialLabel4 = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel5 = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel6 = new MaterialSkin.Controls.MaterialLabel();
-            this.materialRadioButton1 = new MaterialSkin.Controls.MaterialRadioButton();
+            this.Title_radio = new MaterialSkin.Controls.MaterialRadioButton();
             this.materialRadioButton2 = new MaterialSkin.Controls.MaterialRadioButton();
             this.metroTrackBar1 = new MetroFramework.Controls.MetroTrackBar();
             this.materialLabel7 = new MaterialSkin.Controls.MaterialLabel();
@@ -103,6 +103,7 @@
             this.materialSingleLineTextField1.Size = new System.Drawing.Size(552, 23);
             this.materialSingleLineTextField1.TabIndex = 11;
             this.materialSingleLineTextField1.UseSystemPasswordChar = false;
+            this.materialSingleLineTextField1.TextChanged += new System.EventHandler(this.materialSingleLineTextField1_TextChanged);
             // 
             // materialLabel1
             // 
@@ -190,22 +191,22 @@
             this.materialLabel6.TabIndex = 18;
             this.materialLabel6.Text = "Цена";
             // 
-            // materialRadioButton1
+            // Title_radio
             // 
-            this.materialRadioButton1.AutoSize = true;
-            this.materialRadioButton1.Depth = 0;
-            this.materialRadioButton1.Font = new System.Drawing.Font("Roboto", 10F);
-            this.materialRadioButton1.Location = new System.Drawing.Point(862, 106);
-            this.materialRadioButton1.Margin = new System.Windows.Forms.Padding(0);
-            this.materialRadioButton1.MouseLocation = new System.Drawing.Point(-1, -1);
-            this.materialRadioButton1.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialRadioButton1.Name = "materialRadioButton1";
-            this.materialRadioButton1.Ripple = true;
-            this.materialRadioButton1.Size = new System.Drawing.Size(92, 30);
-            this.materialRadioButton1.TabIndex = 21;
-            this.materialRadioButton1.TabStop = true;
-            this.materialRadioButton1.Text = "Название";
-            this.materialRadioButton1.UseVisualStyleBackColor = true;
+            this.Title_radio.AutoSize = true;
+            this.Title_radio.Depth = 0;
+            this.Title_radio.Font = new System.Drawing.Font("Roboto", 10F);
+            this.Title_radio.Location = new System.Drawing.Point(862, 106);
+            this.Title_radio.Margin = new System.Windows.Forms.Padding(0);
+            this.Title_radio.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.Title_radio.MouseState = MaterialSkin.MouseState.HOVER;
+            this.Title_radio.Name = "Title_radio";
+            this.Title_radio.Ripple = true;
+            this.Title_radio.Size = new System.Drawing.Size(92, 30);
+            this.Title_radio.TabIndex = 21;
+            this.Title_radio.TabStop = true;
+            this.Title_radio.Text = "Название";
+            this.Title_radio.UseVisualStyleBackColor = true;
             // 
             // materialRadioButton2
             // 
@@ -373,7 +374,7 @@
             this.Controls.Add(this.materialLabel7);
             this.Controls.Add(this.metroTrackBar1);
             this.Controls.Add(this.materialRadioButton2);
-            this.Controls.Add(this.materialRadioButton1);
+            this.Controls.Add(this.Title_radio);
             this.Controls.Add(this.materialLabel6);
             this.Controls.Add(this.materialLabel5);
             this.Controls.Add(this.materialLabel4);
@@ -405,7 +406,7 @@
         private MaterialSkin.Controls.MaterialLabel materialLabel4;
         private MaterialSkin.Controls.MaterialLabel materialLabel5;
         private MaterialSkin.Controls.MaterialLabel materialLabel6;
-        private MaterialSkin.Controls.MaterialRadioButton materialRadioButton1;
+        private MaterialSkin.Controls.MaterialRadioButton Title_radio;
         private MaterialSkin.Controls.MaterialRadioButton materialRadioButton2;
         private MetroFramework.Controls.MetroTrackBar metroTrackBar1;
         private MaterialSkin.Controls.MaterialLabel materialLabel7;
