@@ -1,0 +1,13 @@
+C:\Users\Данил\Desktop\ADO.NET Exam\ADO.NET Exam\bin\Debug\ADO.NET Exam.exe.config
+C:\Users\Данил\Desktop\ADO.NET Exam\ADO.NET Exam\bin\Debug\ADO.NET Exam.exe
+C:\Users\Данил\Desktop\ADO.NET Exam\ADO.NET Exam\bin\Debug\ADO.NET Exam.pdb
+C:\Users\Данил\Desktop\ADO.NET Exam\ADO.NET Exam\bin\Debug\MaterialSkin.dll
+C:\Users\Данил\Desktop\ADO.NET Exam\ADO.NET Exam\obj\Debug\ADO.NET Exam.csprojResolveAssemblyReference.cache
+C:\Users\Данил\Desktop\ADO.NET Exam\ADO.NET Exam\obj\Debug\ADO.NET_Exam.Form1.resources
+C:\Users\Данил\Desktop\ADO.NET Exam\ADO.NET Exam\obj\Debug\ADO.NET_Exam.Properties.Resources.resources
+C:\Users\Данил\Desktop\ADO.NET Exam\ADO.NET Exam\obj\Debug\ADO.NET Exam.csproj.GenerateResource.Cache
+C:\Users\Данил\Desktop\ADO.NET Exam\ADO.NET Exam\obj\Debug\ADO.NET Exam.csproj.CoreCompileInputs.cache
+C:\Users\Данил\Desktop\ADO.NET Exam\ADO.NET Exam\obj\Debug\ADO.NET Exam.exe
+C:\Users\Данил\Desktop\ADO.NET Exam\ADO.NET Exam\obj\Debug\ADO.NET Exam.pdb
+C:\Users\Данил\Desktop\ADO.NET Exam\ADO.NET Exam\bin\Debug\MetroFramework.dll
+C:\Users\Данил\Desktop\ADO.NET Exam\ADO.NET Exam\obj\Debug\ADO.NET_Exam.Form2.resources
