@@ -45,13 +45,11 @@
             this.metroTrackBar1 = new MetroFramework.Controls.MetroTrackBar();
             this.materialLabel7 = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel9 = new MaterialSkin.Controls.MaterialLabel();
-            this.panel8 = new System.Windows.Forms.Panel();
             this.materialRaisedButton1 = new MaterialSkin.Controls.MaterialRaisedButton();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.materialFlatButton3 = new MaterialSkin.Controls.MaterialFlatButton();
             this.materialRaisedButton2 = new MaterialSkin.Controls.MaterialRaisedButton();
             this.materialRaisedButton3 = new MaterialSkin.Controls.MaterialRaisedButton();
-            this.test_lb = new System.Windows.Forms.Label();
             this.mainPanel = new System.Windows.Forms.Panel();
             this.paginationPanel = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
@@ -264,14 +262,6 @@
             this.materialLabel9.TabIndex = 26;
             this.materialLabel9.Text = "9.99$";
             // 
-            // panel8
-            // 
-            this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(67)))), ((int)(((byte)(21)))));
-            this.panel8.Location = new System.Drawing.Point(0, 64);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(16, 1760);
-            this.panel8.TabIndex = 31;
-            // 
             // materialRaisedButton1
             // 
             this.materialRaisedButton1.Depth = 0;
@@ -334,15 +324,6 @@
             this.materialRaisedButton3.Text = "X";
             this.materialRaisedButton3.UseVisualStyleBackColor = true;
             // 
-            // test_lb
-            // 
-            this.test_lb.AutoSize = true;
-            this.test_lb.Location = new System.Drawing.Point(67, 801);
-            this.test_lb.Name = "test_lb";
-            this.test_lb.Size = new System.Drawing.Size(35, 13);
-            this.test_lb.TabIndex = 37;
-            this.test_lb.Text = "label1";
-            // 
             // mainPanel
             // 
             this.mainPanel.Location = new System.Drawing.Point(23, 266);
@@ -365,13 +346,11 @@
             this.ClientSize = new System.Drawing.Size(1620, 873);
             this.Controls.Add(this.paginationPanel);
             this.Controls.Add(this.mainPanel);
-            this.Controls.Add(this.test_lb);
             this.Controls.Add(this.materialRaisedButton3);
             this.Controls.Add(this.materialRaisedButton2);
             this.Controls.Add(this.materialFlatButton3);
             this.Controls.Add(this.materialRaisedButton1);
             this.Controls.Add(this.pictureBox7);
-            this.Controls.Add(this.panel8);
             this.Controls.Add(this.materialLabel9);
             this.Controls.Add(this.materialLabel7);
             this.Controls.Add(this.metroTrackBar1);
@@ -413,13 +392,11 @@
         private MetroFramework.Controls.MetroTrackBar metroTrackBar1;
         private MaterialSkin.Controls.MaterialLabel materialLabel7;
         private MaterialSkin.Controls.MaterialLabel materialLabel9;
-        private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.PictureBox pictureBox7;
         private MaterialSkin.Controls.MaterialRaisedButton materialRaisedButton1;
         private MaterialSkin.Controls.MaterialFlatButton materialFlatButton3;
         private MaterialSkin.Controls.MaterialRaisedButton materialRaisedButton2;
         private MaterialSkin.Controls.MaterialRaisedButton materialRaisedButton3;
-        private System.Windows.Forms.Label test_lb;
         private System.Windows.Forms.Panel mainPanel;
         private System.Windows.Forms.Panel paginationPanel;
     }

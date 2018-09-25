@@ -13,16 +13,14 @@ using System.Windows.Forms;
 
 namespace ADO.NET_Exam
 {
-    public partial class Form1 : MaterialForm
+    public partial class Form3 : MaterialForm
     {
-
         private int CurrentPage { get; set; } = 0;
         private List<Books> BooksSet;
 
         public double MaxPages { get; set; }
 
-
-        public Form1()
+        public Form3()
         {
             InitializeComponent();
 
@@ -30,6 +28,7 @@ namespace ADO.NET_Exam
             materialSkinManager.AddFormToManage(this);
             materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
             materialSkinManager.ColorScheme = new ColorScheme(Primary.DeepOrange800, Primary.DeepOrange900, Primary.BlueGrey500, Accent.Red700, TextShade.WHITE);
+
 
             using (LibraryEntities db = new LibraryEntities())
             {
@@ -43,17 +42,8 @@ namespace ADO.NET_Exam
             }
         }
 
-
-
-        private void Form1_Load(object sender, EventArgs e)
+        private void Form3_Load(object sender, EventArgs e)
         {
-            //pictureBox1.Image = Image
-            //    .FromFile(@"C:\Users\Данил\Desktop\ADO.NET Exam\ADO.NET Exam\bin\Debug\starboy.png");
-            //pictureBox2.Image = Image
-            //    .FromFile(@"C:\Users\Данил\Desktop\ADO.NET Exam\ADO.NET Exam\bin\Debug\wakeup.jpg");
-            //pictureBox3.Image = Image
-            //    .FromFile(@"C:\Users\Данил\Desktop\ADO.NET Exam\ADO.NET Exam\bin\Debug\redpill.jpg");
-
             GeneratePagination(BooksSet);
             ShowPageOfBooks(BooksSet);
         }
@@ -74,7 +64,7 @@ namespace ADO.NET_Exam
                 paginationPanel.Controls.Add(but);
 
                 locy += 43;
-            }         
+            }
         }
 
         private void But_MouseClick(object sender, MouseEventArgs e)
@@ -102,7 +92,7 @@ namespace ADO.NET_Exam
                     if (Books[i].Title != null)
                     {
                         Panel elem = new Panel();
-                        elem.Size = new Size(1212, 59);
+                        elem.Size = new Size(1382, 59);
                         elem.BackColor = Color.FromArgb(240, 240, 240);
                         elem.Location = new Point(30, startHeight);
 
@@ -163,10 +153,20 @@ namespace ADO.NET_Exam
                         bookPrice.Location = new Point(960, 18);
                         bookPrice.Font = new Font("Segoe UI", 12f, FontStyle.Regular);
 
-                        MaterialRaisedButton trackBut = new MaterialRaisedButton();
-                        trackBut.Text = "buy";
-                        trackBut.Size = new Size(107, 34);
-                        trackBut.Location = new Point(1089, 12);
+
+
+
+                        MaterialRaisedButton editBut = new MaterialRaisedButton();
+                        editBut.Text = "✎";
+                        editBut.Size = new Size(38, 38);
+                        editBut.Location = new Point(1139, 12);
+
+                        MaterialRaisedButton delBut = new MaterialRaisedButton();
+                        delBut.Text = "x";
+                        delBut.Size = new Size(38, 38);
+                        delBut.Location = new Point(1189, 12);
+
+
 
 
 
@@ -177,40 +177,13 @@ namespace ADO.NET_Exam
                         elem.Controls.Add(bookGenre);
                         elem.Controls.Add(bookPages);
                         elem.Controls.Add(bookPrice);
-                        elem.Controls.Add(trackBut);
+                        elem.Controls.Add(editBut);
+                        elem.Controls.Add(delBut);
 
                         mainPanel.Controls.Add(elem);
                     }
                 }
             }
-        }
-
-
-
-        private void materialRaisedButton10_Click(object sender, EventArgs e)
-        {
-            Button but = sender as Button;
-            foreach (Control item in but.Parent.Controls)
-            {
-                if (item.Name == "label1")
-                {
-                    MessageBox.Show(item.Text);
-                }
-            }
-        }
-
-        private void Form1_Resize(object sender, EventArgs e)
-        {
-            //bin_panel.Location = new Point(this.Width - 200, 63);
-        }
-
-        private void materialFlatButton3_Click(object sender, EventArgs e)
-        {
-            Form2 form = new Form2();
-            form.Owner = this;
-
-            form.Show();
-            //this.Min
         }
 
         private void materialFlatButton2_Click(object sender, EventArgs e)
@@ -230,47 +203,5 @@ namespace ADO.NET_Exam
                 ShowPageOfBooks(BooksSet);
             }
         }
-
-        private void materialSingleLineTextField1_TextChanged(object sender, EventArgs e)
-        {
-            CurrentPage = 0;
-            if (Title_radio.Checked)
-            {
-                using (LibraryEntities db = new LibraryEntities())
-                {
-                    var filtered = (from b in db.Books
-                                    where b.Title.Contains(search_field.Text)
-                                    orderby b.Id
-                                    select b
-                                    ).Include("Authors").Include("Genres").ToList();
-                    paginationPanel.Controls.Clear();
-                    BooksSet = filtered;
-                    ShowPageOfBooks(BooksSet);
-                }
-            }
-            else if (Author_radio.Checked)
-            {
-                using (LibraryEntities db = new LibraryEntities())
-                {
-                    var filtered = (from b in db.Books
-                                    where b.Authors.FirstName.Contains(search_field.Text) ||
-                                          b.Authors.LastName.Contains(search_field.Text)
-                                    orderby b.Id
-                                    select b)
-                                    .Include("Authors")
-                                    .Include("Genres")
-                                    .ToList();
-
-                    paginationPanel.Controls.Clear();
-                    BooksSet = filtered;
-                    ShowPageOfBooks(BooksSet);
-                }
-            }
-        }
-
-        private void materialSingleLineTextField1_Click(object sender, EventArgs e)
-        {
-
-        }
-    } 
+    }
 }
