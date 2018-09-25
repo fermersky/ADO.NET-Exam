@@ -94,7 +94,6 @@ namespace ADO.NET_Exam
                 int startHeight = 0;
 
                 var Books = (from d in _books
-                             orderby d.Id
                              select d).Skip(CurrentPage * 6).Take(6).ToList();
                 mainPanel.Controls.Clear();
 
