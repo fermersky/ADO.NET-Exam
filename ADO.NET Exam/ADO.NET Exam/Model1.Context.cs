@@ -30,5 +30,7 @@ namespace ADO.NET_Exam
         public virtual DbSet<Books> Books { get; set; }
         public virtual DbSet<Genres> Genres { get; set; }
         public virtual DbSet<Users> Users { get; set; }
+
+        
     }
 }

@@ -29,9 +29,6 @@
         private void InitializeComponent()
         {
             this.mainPanel = new System.Windows.Forms.Panel();
-            this.materialLabel6 = new MaterialSkin.Controls.MaterialLabel();
-            this.materialLabel5 = new MaterialSkin.Controls.MaterialLabel();
-            this.materialLabel4 = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel3 = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
             this.label4 = new System.Windows.Forms.Label();
@@ -41,8 +38,16 @@
             this.rightPanel = new System.Windows.Forms.Panel();
             this.title_tb = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.bookAlbum = new System.Windows.Forms.PictureBox();
-            this.materialSingleLineTextField2 = new MaterialSkin.Controls.MaterialSingleLineTextField();
-            this.materialSingleLineTextField3 = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.price_tb = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.publ_tb = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.materialRaisedButton1 = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.genres_cb = new MetroFramework.Controls.MetroComboBox();
+            this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
+            this.materialLabel4 = new MaterialSkin.Controls.MaterialLabel();
+            this.materialLabel5 = new MaterialSkin.Controls.MaterialLabel();
+            this.materialLabel6 = new MaterialSkin.Controls.MaterialLabel();
+            this.materialLabel7 = new MaterialSkin.Controls.MaterialLabel();
+            this.authors_tb = new MetroFramework.Controls.MetroComboBox();
             this.rightPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bookAlbum)).BeginInit();
             this.SuspendLayout();
@@ -51,47 +56,8 @@
             // 
             this.mainPanel.Location = new System.Drawing.Point(21, 200);
             this.mainPanel.Name = "mainPanel";
-            this.mainPanel.Size = new System.Drawing.Size(1279, 521);
+            this.mainPanel.Size = new System.Drawing.Size(709, 521);
             this.mainPanel.TabIndex = 45;
-            // 
-            // materialLabel6
-            // 
-            this.materialLabel6.AutoSize = true;
-            this.materialLabel6.Depth = 0;
-            this.materialLabel6.Font = new System.Drawing.Font("Roboto", 11F);
-            this.materialLabel6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel6.Location = new System.Drawing.Point(1008, 157);
-            this.materialLabel6.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel6.Name = "materialLabel6";
-            this.materialLabel6.Size = new System.Drawing.Size(45, 19);
-            this.materialLabel6.TabIndex = 44;
-            this.materialLabel6.Text = "Цена";
-            // 
-            // materialLabel5
-            // 
-            this.materialLabel5.AutoSize = true;
-            this.materialLabel5.Depth = 0;
-            this.materialLabel5.Font = new System.Drawing.Font("Roboto", 11F);
-            this.materialLabel5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel5.Location = new System.Drawing.Point(698, 157);
-            this.materialLabel5.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel5.Name = "materialLabel5";
-            this.materialLabel5.Size = new System.Drawing.Size(48, 19);
-            this.materialLabel5.TabIndex = 43;
-            this.materialLabel5.Text = "Жанр";
-            // 
-            // materialLabel4
-            // 
-            this.materialLabel4.AutoSize = true;
-            this.materialLabel4.Depth = 0;
-            this.materialLabel4.Font = new System.Drawing.Font("Roboto", 11F);
-            this.materialLabel4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel4.Location = new System.Drawing.Point(844, 157);
-            this.materialLabel4.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel4.Name = "materialLabel4";
-            this.materialLabel4.Size = new System.Drawing.Size(103, 19);
-            this.materialLabel4.TabIndex = 42;
-            this.materialLabel4.Text = "К-во страниц";
             // 
             // materialLabel3
             // 
@@ -168,70 +134,177 @@
             // 
             // rightPanel
             // 
-            this.rightPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(54)))), ((int)(((byte)(12)))));
-            this.rightPanel.Controls.Add(this.materialSingleLineTextField3);
-            this.rightPanel.Controls.Add(this.materialSingleLineTextField2);
+            this.rightPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.rightPanel.Controls.Add(this.materialLabel7);
+            this.rightPanel.Controls.Add(this.materialLabel5);
+            this.rightPanel.Controls.Add(this.authors_tb);
+            this.rightPanel.Controls.Add(this.materialLabel6);
+            this.rightPanel.Controls.Add(this.genres_cb);
+            this.rightPanel.Controls.Add(this.materialRaisedButton1);
+            this.rightPanel.Controls.Add(this.materialLabel4);
+            this.rightPanel.Controls.Add(this.publ_tb);
+            this.rightPanel.Controls.Add(this.materialLabel1);
+            this.rightPanel.Controls.Add(this.price_tb);
             this.rightPanel.Controls.Add(this.bookAlbum);
             this.rightPanel.Controls.Add(this.title_tb);
-            this.rightPanel.Location = new System.Drawing.Point(1379, 63);
+            this.rightPanel.Location = new System.Drawing.Point(1179, 64);
             this.rightPanel.Name = "rightPanel";
-            this.rightPanel.Size = new System.Drawing.Size(241, 1620);
+            this.rightPanel.Size = new System.Drawing.Size(441, 1620);
             this.rightPanel.TabIndex = 49;
+            this.rightPanel.Visible = false;
             this.rightPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.rightPanel_Paint);
             // 
             // title_tb
             // 
             this.title_tb.Depth = 0;
             this.title_tb.Hint = "";
-            this.title_tb.Location = new System.Drawing.Point(30, 260);
+            this.title_tb.Location = new System.Drawing.Point(135, 298);
             this.title_tb.MouseState = MaterialSkin.MouseState.HOVER;
             this.title_tb.Name = "title_tb";
             this.title_tb.PasswordChar = '\0';
             this.title_tb.SelectedText = "";
             this.title_tb.SelectionLength = 0;
             this.title_tb.SelectionStart = 0;
-            this.title_tb.Size = new System.Drawing.Size(199, 23);
+            this.title_tb.Size = new System.Drawing.Size(252, 23);
             this.title_tb.TabIndex = 0;
             this.title_tb.UseSystemPasswordChar = false;
             // 
             // bookAlbum
             // 
-            this.bookAlbum.Location = new System.Drawing.Point(80, 56);
+            this.bookAlbum.Location = new System.Drawing.Point(146, 23);
             this.bookAlbum.Name = "bookAlbum";
-            this.bookAlbum.Size = new System.Drawing.Size(93, 136);
+            this.bookAlbum.Size = new System.Drawing.Size(145, 219);
             this.bookAlbum.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.bookAlbum.TabIndex = 1;
             this.bookAlbum.TabStop = false;
             // 
-            // materialSingleLineTextField2
+            // price_tb
             // 
-            this.materialSingleLineTextField2.Depth = 0;
-            this.materialSingleLineTextField2.Hint = "";
-            this.materialSingleLineTextField2.Location = new System.Drawing.Point(30, 306);
-            this.materialSingleLineTextField2.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialSingleLineTextField2.Name = "materialSingleLineTextField2";
-            this.materialSingleLineTextField2.PasswordChar = '\0';
-            this.materialSingleLineTextField2.SelectedText = "";
-            this.materialSingleLineTextField2.SelectionLength = 0;
-            this.materialSingleLineTextField2.SelectionStart = 0;
-            this.materialSingleLineTextField2.Size = new System.Drawing.Size(199, 23);
-            this.materialSingleLineTextField2.TabIndex = 50;
-            this.materialSingleLineTextField2.UseSystemPasswordChar = false;
+            this.price_tb.Depth = 0;
+            this.price_tb.Hint = "";
+            this.price_tb.Location = new System.Drawing.Point(135, 344);
+            this.price_tb.MouseState = MaterialSkin.MouseState.HOVER;
+            this.price_tb.Name = "price_tb";
+            this.price_tb.PasswordChar = '\0';
+            this.price_tb.SelectedText = "";
+            this.price_tb.SelectionLength = 0;
+            this.price_tb.SelectionStart = 0;
+            this.price_tb.Size = new System.Drawing.Size(252, 23);
+            this.price_tb.TabIndex = 50;
+            this.price_tb.UseSystemPasswordChar = false;
             // 
-            // materialSingleLineTextField3
+            // publ_tb
             // 
-            this.materialSingleLineTextField3.Depth = 0;
-            this.materialSingleLineTextField3.Hint = "";
-            this.materialSingleLineTextField3.Location = new System.Drawing.Point(30, 356);
-            this.materialSingleLineTextField3.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialSingleLineTextField3.Name = "materialSingleLineTextField3";
-            this.materialSingleLineTextField3.PasswordChar = '\0';
-            this.materialSingleLineTextField3.SelectedText = "";
-            this.materialSingleLineTextField3.SelectionLength = 0;
-            this.materialSingleLineTextField3.SelectionStart = 0;
-            this.materialSingleLineTextField3.Size = new System.Drawing.Size(199, 23);
-            this.materialSingleLineTextField3.TabIndex = 50;
-            this.materialSingleLineTextField3.UseSystemPasswordChar = false;
+            this.publ_tb.Depth = 0;
+            this.publ_tb.Hint = "";
+            this.publ_tb.Location = new System.Drawing.Point(135, 394);
+            this.publ_tb.MouseState = MaterialSkin.MouseState.HOVER;
+            this.publ_tb.Name = "publ_tb";
+            this.publ_tb.PasswordChar = '\0';
+            this.publ_tb.SelectedText = "";
+            this.publ_tb.SelectionLength = 0;
+            this.publ_tb.SelectionStart = 0;
+            this.publ_tb.Size = new System.Drawing.Size(252, 23);
+            this.publ_tb.TabIndex = 50;
+            this.publ_tb.UseSystemPasswordChar = false;
+            // 
+            // materialRaisedButton1
+            // 
+            this.materialRaisedButton1.Depth = 0;
+            this.materialRaisedButton1.Location = new System.Drawing.Point(36, 615);
+            this.materialRaisedButton1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialRaisedButton1.Name = "materialRaisedButton1";
+            this.materialRaisedButton1.Primary = true;
+            this.materialRaisedButton1.Size = new System.Drawing.Size(154, 42);
+            this.materialRaisedButton1.TabIndex = 51;
+            this.materialRaisedButton1.Text = "Save Changes";
+            this.materialRaisedButton1.UseVisualStyleBackColor = true;
+            this.materialRaisedButton1.Click += new System.EventHandler(this.materialRaisedButton1_Click);
+            // 
+            // genres_cb
+            // 
+            this.genres_cb.FormattingEnabled = true;
+            this.genres_cb.ItemHeight = 23;
+            this.genres_cb.Location = new System.Drawing.Point(135, 453);
+            this.genres_cb.Name = "genres_cb";
+            this.genres_cb.Size = new System.Drawing.Size(252, 29);
+            this.genres_cb.TabIndex = 52;
+            this.genres_cb.UseSelectable = true;
+            // 
+            // materialLabel1
+            // 
+            this.materialLabel1.AutoSize = true;
+            this.materialLabel1.Depth = 0;
+            this.materialLabel1.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel1.Location = new System.Drawing.Point(32, 302);
+            this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel1.Name = "materialLabel1";
+            this.materialLabel1.Size = new System.Drawing.Size(39, 19);
+            this.materialLabel1.TabIndex = 50;
+            this.materialLabel1.Text = "Title";
+            // 
+            // materialLabel4
+            // 
+            this.materialLabel4.AutoSize = true;
+            this.materialLabel4.Depth = 0;
+            this.materialLabel4.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel4.Location = new System.Drawing.Point(32, 348);
+            this.materialLabel4.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel4.Name = "materialLabel4";
+            this.materialLabel4.Size = new System.Drawing.Size(43, 19);
+            this.materialLabel4.TabIndex = 51;
+            this.materialLabel4.Text = "Price";
+            // 
+            // materialLabel5
+            // 
+            this.materialLabel5.AutoSize = true;
+            this.materialLabel5.Depth = 0;
+            this.materialLabel5.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel5.Location = new System.Drawing.Point(32, 453);
+            this.materialLabel5.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel5.Name = "materialLabel5";
+            this.materialLabel5.Size = new System.Drawing.Size(48, 19);
+            this.materialLabel5.TabIndex = 52;
+            this.materialLabel5.Text = "Genre";
+            // 
+            // materialLabel6
+            // 
+            this.materialLabel6.AutoSize = true;
+            this.materialLabel6.Depth = 0;
+            this.materialLabel6.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel6.Location = new System.Drawing.Point(32, 398);
+            this.materialLabel6.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel6.Name = "materialLabel6";
+            this.materialLabel6.Size = new System.Drawing.Size(71, 19);
+            this.materialLabel6.TabIndex = 53;
+            this.materialLabel6.Text = "Publisher";
+            // 
+            // materialLabel7
+            // 
+            this.materialLabel7.AutoSize = true;
+            this.materialLabel7.Depth = 0;
+            this.materialLabel7.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel7.Location = new System.Drawing.Point(32, 511);
+            this.materialLabel7.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel7.Name = "materialLabel7";
+            this.materialLabel7.Size = new System.Drawing.Size(62, 19);
+            this.materialLabel7.TabIndex = 53;
+            this.materialLabel7.Text = "Authors";
+            // 
+            // authors_tb
+            // 
+            this.authors_tb.FormattingEnabled = true;
+            this.authors_tb.ItemHeight = 23;
+            this.authors_tb.Location = new System.Drawing.Point(135, 511);
+            this.authors_tb.Name = "authors_tb";
+            this.authors_tb.Size = new System.Drawing.Size(252, 29);
+            this.authors_tb.TabIndex = 54;
+            this.authors_tb.UseSelectable = true;
             // 
             // Form3
             // 
@@ -243,9 +316,6 @@
             this.Controls.Add(this.materialFlatButton2);
             this.Controls.Add(this.materialFlatButton1);
             this.Controls.Add(this.mainPanel);
-            this.Controls.Add(this.materialLabel6);
-            this.Controls.Add(this.materialLabel5);
-            this.Controls.Add(this.materialLabel4);
             this.Controls.Add(this.materialLabel3);
             this.Controls.Add(this.materialLabel2);
             this.Controls.Add(this.label4);
@@ -253,6 +323,7 @@
             this.Text = "Admin Panel";
             this.Load += new System.EventHandler(this.Form3_Load);
             this.rightPanel.ResumeLayout(false);
+            this.rightPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bookAlbum)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -262,9 +333,6 @@
         #endregion
 
         private System.Windows.Forms.Panel mainPanel;
-        private MaterialSkin.Controls.MaterialLabel materialLabel6;
-        private MaterialSkin.Controls.MaterialLabel materialLabel5;
-        private MaterialSkin.Controls.MaterialLabel materialLabel4;
         private MaterialSkin.Controls.MaterialLabel materialLabel3;
         private MaterialSkin.Controls.MaterialLabel materialLabel2;
         private System.Windows.Forms.Label label4;
@@ -272,9 +340,17 @@
         private MaterialSkin.Controls.MaterialFlatButton materialFlatButton2;
         private MaterialSkin.Controls.MaterialFlatButton materialFlatButton1;
         private System.Windows.Forms.Panel rightPanel;
-        private MaterialSkin.Controls.MaterialSingleLineTextField materialSingleLineTextField3;
-        private MaterialSkin.Controls.MaterialSingleLineTextField materialSingleLineTextField2;
+        private MaterialSkin.Controls.MaterialSingleLineTextField publ_tb;
+        private MaterialSkin.Controls.MaterialSingleLineTextField price_tb;
         private System.Windows.Forms.PictureBox bookAlbum;
         private MaterialSkin.Controls.MaterialSingleLineTextField title_tb;
+        private MaterialSkin.Controls.MaterialRaisedButton materialRaisedButton1;
+        private MaterialSkin.Controls.MaterialLabel materialLabel5;
+        private MaterialSkin.Controls.MaterialLabel materialLabel6;
+        private MetroFramework.Controls.MetroComboBox genres_cb;
+        private MaterialSkin.Controls.MaterialLabel materialLabel4;
+        private MaterialSkin.Controls.MaterialLabel materialLabel1;
+        private MaterialSkin.Controls.MaterialLabel materialLabel7;
+        private MetroFramework.Controls.MetroComboBox authors_tb;
     }
 }

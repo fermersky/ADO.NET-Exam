@@ -42,7 +42,7 @@ namespace ADO.NET_Exam
                 MaxPages = Math.Ceiling(d);
             }
 
-            rightPanel.Location = new Point(this.Width, 64);
+            //rightPanel.Location = new Point(this.Width, 64);
         }
 
         private void Form3_Load(object sender, EventArgs e)
@@ -95,7 +95,7 @@ namespace ADO.NET_Exam
                     if (Books[i].Title != null)
                     {
                         Panel elem = new Panel();
-                        elem.Size = new Size(982, 59);
+                        elem.Size = new Size(632, 59);
                         elem.BackColor = Color.FromArgb(240, 240, 240);
                         elem.Location = new Point(30, startHeight);
 
@@ -129,8 +129,8 @@ namespace ADO.NET_Exam
 
                         Label bookAuthor = new Label();
                         bookAuthor.Text = Books[i].Authors.FirstName + " " + Books[i].Authors.LastName;
-                        bookAuthor.Size = new Size(186, 30);
-                        bookAuthor.Location = new Point(363, 18);
+                        bookAuthor.Size = new Size(106, 30);
+                        bookAuthor.Location = new Point(333, 18);
                         bookAuthor.Font = new Font("Segoe UI", 12f, FontStyle.Regular);
 
                         //// Genre
@@ -163,13 +163,13 @@ namespace ADO.NET_Exam
                         MaterialRaisedButton editBut = new MaterialRaisedButton();
                         editBut.Text = "✎";
                         editBut.Size = new Size(38, 38);
-                        editBut.Location = new Point(1139, 12);
+                        editBut.Location = new Point(520, 12);
                         editBut.MouseClick += EditBut_MouseClick;
 
                         MaterialRaisedButton delBut = new MaterialRaisedButton();
                         delBut.Text = "x";
                         delBut.Size = new Size(38, 38);
-                        delBut.Location = new Point(1189, 12);
+                        delBut.Location = new Point(570, 12);
 
 
 
@@ -191,10 +191,12 @@ namespace ADO.NET_Exam
 
         private void EditBut_MouseClick(object sender, MouseEventArgs e)
         {
-            Timer timer = new Timer();
-            timer.Interval = 1;
-            timer.Tick += Timer_Tick;
-            timer.Start();
+            //Timer timer = new Timer();
+            //timer.Interval = 1;
+            //timer.Tick += Timer_Tick;
+            //timer.Start();
+
+            rightPanel.Visible = true;
 
             MaterialRaisedButton but = sender as MaterialRaisedButton;
 
@@ -206,16 +208,35 @@ namespace ADO.NET_Exam
 
             using (LibraryEntities db = new LibraryEntities())
             {
-                var book = db.Books.Where(b => b.Id == CurrId).Select(b => new { Title = b.Title, IP = b.ImagePath }).First();
+                var book = db.Books
+                    .Where(b => b.Id == CurrId)
+                    .Select(b => new { Title = b.Title, IP = b.ImagePath, Price = b.Price, Publ = b.Publisher, Genres = b.Genres })
+                    .First();
+
                 bookAlbum.Image = Image.FromFile(book.IP);
                 title_tb.Text = book.Title;
+                price_tb.Text = book.Price;
+                publ_tb.Text = book.Publ;
+
+                var genres = db.Genres.Select(g => new { Genre = g.GenreName }).ToList();
+                genres_cb.Items.Clear();
+                foreach (var item in genres)
+                    genres_cb.Items.Add(item.Genre);
+
+
+                var authors = db.Authors.Select(g => new { FN = g.FirstName, LN = g.LastName }).ToList();
+                authors_tb.Items.Clear();
+                foreach (var item in authors)
+                    authors_tb.Items.Add(item.FN + " " + item.LN);
             }
         }
 
         private void Timer_Tick(object sender, EventArgs e)
         {
+            Timer t = sender as Timer;
             if (rightPanel.Location.X >= this.Width - rightPanel.Width + 30)
-                rightPanel.Location = new Point(rightPanel.Location.X - 30, rightPanel.Location.Y);
+                rightPanel.Location = new Point(rightPanel.Location.X - 10, rightPanel.Location.Y);
+            else t.Stop();
         }
 
         private void materialFlatButton2_Click(object sender, EventArgs e)
@@ -239,6 +260,24 @@ namespace ADO.NET_Exam
         private void rightPanel_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void materialRaisedButton1_Click(object sender, EventArgs e)
+        {
+            //Timer timer = new Timer();
+            //timer.Interval = 1;
+            //timer.Tick += Timer_Tick2;
+            //timer.Start();
+
+            rightPanel.Visible = false;
+        }
+
+        private void Timer_Tick2(object sender, EventArgs e)
+        {
+            Timer t = sender as Timer;
+            if (rightPanel.Location.X <= this.Width)
+                rightPanel.Location = new Point(rightPanel.Location.X + 5, rightPanel.Location.Y);
+            else t.Stop();
         }
     }
 }
