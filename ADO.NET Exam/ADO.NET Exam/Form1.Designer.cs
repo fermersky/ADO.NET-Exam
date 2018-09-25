@@ -32,7 +32,7 @@
             this.materialFlatButton1 = new MaterialSkin.Controls.MaterialFlatButton();
             this.materialFlatButton2 = new MaterialSkin.Controls.MaterialFlatButton();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.materialSingleLineTextField1 = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.search_field = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
             this.label4 = new System.Windows.Forms.Label();
             this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
@@ -41,7 +41,7 @@
             this.materialLabel5 = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel6 = new MaterialSkin.Controls.MaterialLabel();
             this.Title_radio = new MaterialSkin.Controls.MaterialRadioButton();
-            this.materialRadioButton2 = new MaterialSkin.Controls.MaterialRadioButton();
+            this.Author_radio = new MaterialSkin.Controls.MaterialRadioButton();
             this.metroTrackBar1 = new MetroFramework.Controls.MetroTrackBar();
             this.materialLabel7 = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel9 = new MaterialSkin.Controls.MaterialLabel();
@@ -89,21 +89,22 @@
             this.materialFlatButton2.UseVisualStyleBackColor = true;
             this.materialFlatButton2.Click += new System.EventHandler(this.materialFlatButton2_Click);
             // 
-            // materialSingleLineTextField1
+            // search_field
             // 
-            this.materialSingleLineTextField1.Depth = 0;
-            this.materialSingleLineTextField1.Hint = "";
-            this.materialSingleLineTextField1.Location = new System.Drawing.Point(225, 106);
-            this.materialSingleLineTextField1.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialSingleLineTextField1.Name = "materialSingleLineTextField1";
-            this.materialSingleLineTextField1.PasswordChar = '\0';
-            this.materialSingleLineTextField1.SelectedText = "";
-            this.materialSingleLineTextField1.SelectionLength = 0;
-            this.materialSingleLineTextField1.SelectionStart = 0;
-            this.materialSingleLineTextField1.Size = new System.Drawing.Size(552, 23);
-            this.materialSingleLineTextField1.TabIndex = 11;
-            this.materialSingleLineTextField1.UseSystemPasswordChar = false;
-            this.materialSingleLineTextField1.TextChanged += new System.EventHandler(this.materialSingleLineTextField1_TextChanged);
+            this.search_field.Depth = 0;
+            this.search_field.Hint = "";
+            this.search_field.Location = new System.Drawing.Point(225, 106);
+            this.search_field.MouseState = MaterialSkin.MouseState.HOVER;
+            this.search_field.Name = "search_field";
+            this.search_field.PasswordChar = '\0';
+            this.search_field.SelectedText = "";
+            this.search_field.SelectionLength = 0;
+            this.search_field.SelectionStart = 0;
+            this.search_field.Size = new System.Drawing.Size(552, 23);
+            this.search_field.TabIndex = 11;
+            this.search_field.UseSystemPasswordChar = false;
+            this.search_field.Click += new System.EventHandler(this.materialSingleLineTextField1_Click);
+            this.search_field.TextChanged += new System.EventHandler(this.materialSingleLineTextField1_TextChanged);
             // 
             // materialLabel1
             // 
@@ -194,6 +195,7 @@
             // Title_radio
             // 
             this.Title_radio.AutoSize = true;
+            this.Title_radio.Checked = true;
             this.Title_radio.Depth = 0;
             this.Title_radio.Font = new System.Drawing.Font("Roboto", 10F);
             this.Title_radio.Location = new System.Drawing.Point(862, 106);
@@ -208,22 +210,22 @@
             this.Title_radio.Text = "Название";
             this.Title_radio.UseVisualStyleBackColor = true;
             // 
-            // materialRadioButton2
+            // Author_radio
             // 
-            this.materialRadioButton2.AutoSize = true;
-            this.materialRadioButton2.Depth = 0;
-            this.materialRadioButton2.Font = new System.Drawing.Font("Roboto", 10F);
-            this.materialRadioButton2.Location = new System.Drawing.Point(985, 106);
-            this.materialRadioButton2.Margin = new System.Windows.Forms.Padding(0);
-            this.materialRadioButton2.MouseLocation = new System.Drawing.Point(-1, -1);
-            this.materialRadioButton2.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialRadioButton2.Name = "materialRadioButton2";
-            this.materialRadioButton2.Ripple = true;
-            this.materialRadioButton2.Size = new System.Drawing.Size(115, 30);
-            this.materialRadioButton2.TabIndex = 22;
-            this.materialRadioButton2.TabStop = true;
-            this.materialRadioButton2.Text = "Исполнитель";
-            this.materialRadioButton2.UseVisualStyleBackColor = true;
+            this.Author_radio.AutoSize = true;
+            this.Author_radio.Depth = 0;
+            this.Author_radio.Font = new System.Drawing.Font("Roboto", 10F);
+            this.Author_radio.Location = new System.Drawing.Point(985, 106);
+            this.Author_radio.Margin = new System.Windows.Forms.Padding(0);
+            this.Author_radio.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.Author_radio.MouseState = MaterialSkin.MouseState.HOVER;
+            this.Author_radio.Name = "Author_radio";
+            this.Author_radio.Ripple = true;
+            this.Author_radio.Size = new System.Drawing.Size(68, 30);
+            this.Author_radio.TabIndex = 22;
+            this.Author_radio.TabStop = true;
+            this.Author_radio.Text = "Автор";
+            this.Author_radio.UseVisualStyleBackColor = true;
             // 
             // metroTrackBar1
             // 
@@ -373,7 +375,7 @@
             this.Controls.Add(this.materialLabel9);
             this.Controls.Add(this.materialLabel7);
             this.Controls.Add(this.metroTrackBar1);
-            this.Controls.Add(this.materialRadioButton2);
+            this.Controls.Add(this.Author_radio);
             this.Controls.Add(this.Title_radio);
             this.Controls.Add(this.materialLabel6);
             this.Controls.Add(this.materialLabel5);
@@ -382,7 +384,7 @@
             this.Controls.Add(this.materialLabel2);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.materialLabel1);
-            this.Controls.Add(this.materialSingleLineTextField1);
+            this.Controls.Add(this.search_field);
             this.Controls.Add(this.materialFlatButton2);
             this.Controls.Add(this.materialFlatButton1);
             this.Name = "Form1";
@@ -398,7 +400,7 @@
         private MaterialSkin.Controls.MaterialFlatButton materialFlatButton1;
         private MaterialSkin.Controls.MaterialFlatButton materialFlatButton2;
         private System.Windows.Forms.ToolTip toolTip1;
-        private MaterialSkin.Controls.MaterialSingleLineTextField materialSingleLineTextField1;
+        private MaterialSkin.Controls.MaterialSingleLineTextField search_field;
         private MaterialSkin.Controls.MaterialLabel materialLabel1;
         private System.Windows.Forms.Label label4;
         private MaterialSkin.Controls.MaterialLabel materialLabel2;
@@ -407,7 +409,7 @@
         private MaterialSkin.Controls.MaterialLabel materialLabel5;
         private MaterialSkin.Controls.MaterialLabel materialLabel6;
         private MaterialSkin.Controls.MaterialRadioButton Title_radio;
-        private MaterialSkin.Controls.MaterialRadioButton materialRadioButton2;
+        private MaterialSkin.Controls.MaterialRadioButton Author_radio;
         private MetroFramework.Controls.MetroTrackBar metroTrackBar1;
         private MaterialSkin.Controls.MaterialLabel materialLabel7;
         private MaterialSkin.Controls.MaterialLabel materialLabel9;
