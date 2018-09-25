@@ -19,6 +19,7 @@ namespace ADO.NET_Exam
         private List<Books> BooksSet;
 
         public double MaxPages { get; set; }
+        public int CurrId { get; set; }
 
         public Form3()
         {
@@ -40,6 +41,8 @@ namespace ADO.NET_Exam
                 double d = Convert.ToDouble(BooksSet.Count) / 6.0;
                 MaxPages = Math.Ceiling(d);
             }
+
+            rightPanel.Location = new Point(this.Width, 64);
         }
 
         private void Form3_Load(object sender, EventArgs e)
@@ -92,7 +95,7 @@ namespace ADO.NET_Exam
                     if (Books[i].Title != null)
                     {
                         Panel elem = new Panel();
-                        elem.Size = new Size(1382, 59);
+                        elem.Size = new Size(982, 59);
                         elem.BackColor = Color.FromArgb(240, 240, 240);
                         elem.Location = new Point(30, startHeight);
 
@@ -105,6 +108,7 @@ namespace ADO.NET_Exam
                         bookId.Location = new Point(12, 18);
                         bookId.Font = new Font("Segoe", 12, FontStyle.Regular);
                         bookId.Size = new Size(32, 25);
+                        bookId.Name = "id_book";
 
                         PictureBox pb = new PictureBox();
                         pb.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -129,29 +133,29 @@ namespace ADO.NET_Exam
                         bookAuthor.Location = new Point(363, 18);
                         bookAuthor.Font = new Font("Segoe UI", 12f, FontStyle.Regular);
 
-                        // Genre
+                        //// Genre
 
-                        Label bookGenre = new Label();
-                        bookGenre.Text = Books[i].Genres.GenreName;
-                        bookGenre.Size = new Size(132, 20);
-                        bookGenre.Location = new Point(650, 18);
-                        bookGenre.Font = new Font("Segoe UI", 12f, FontStyle.Regular);
+                        //Label bookGenre = new Label();
+                        //bookGenre.Text = Books[i].Genres.GenreName;
+                        //bookGenre.Size = new Size(132, 20);
+                        //bookGenre.Location = new Point(650, 18);
+                        //bookGenre.Font = new Font("Segoe UI", 12f, FontStyle.Regular);
 
-                        // Pages
+                        //// Pages
 
-                        Label bookPages = new Label();
-                        bookPages.Text = Books[i].Pages.ToString();
-                        bookPages.Size = new Size(46, 18);
-                        bookPages.Location = new Point(831, 18);
-                        bookPages.Font = new Font("Segoe UI", 12f, FontStyle.Regular);
+                        //Label bookPages = new Label();
+                        //bookPages.Text = Books[i].Pages.ToString();
+                        //bookPages.Size = new Size(46, 18);
+                        //bookPages.Location = new Point(831, 18);
+                        //bookPages.Font = new Font("Segoe UI", 12f, FontStyle.Regular);
 
-                        // Price
+                        //// Price
 
-                        Label bookPrice = new Label();
-                        bookPrice.Text = Books[i].PriceForSale + "$";
-                        bookPrice.Size = new Size(52, 20);
-                        bookPrice.Location = new Point(960, 18);
-                        bookPrice.Font = new Font("Segoe UI", 12f, FontStyle.Regular);
+                        //Label bookPrice = new Label();
+                        //bookPrice.Text = Books[i].PriceForSale + "$";
+                        //bookPrice.Size = new Size(52, 20);
+                        //bookPrice.Location = new Point(960, 18);
+                        //bookPrice.Font = new Font("Segoe UI", 12f, FontStyle.Regular);
 
 
 
@@ -160,6 +164,7 @@ namespace ADO.NET_Exam
                         editBut.Text = "✎";
                         editBut.Size = new Size(38, 38);
                         editBut.Location = new Point(1139, 12);
+                        editBut.MouseClick += EditBut_MouseClick;
 
                         MaterialRaisedButton delBut = new MaterialRaisedButton();
                         delBut.Text = "x";
@@ -168,15 +173,13 @@ namespace ADO.NET_Exam
 
 
 
-
-
                         elem.Controls.Add(bookId);
                         elem.Controls.Add(pb);
                         elem.Controls.Add(bookTitle);
                         elem.Controls.Add(bookAuthor);
-                        elem.Controls.Add(bookGenre);
-                        elem.Controls.Add(bookPages);
-                        elem.Controls.Add(bookPrice);
+                        //elem.Controls.Add(bookGenre);
+                        //elem.Controls.Add(bookPages);
+                        //elem.Controls.Add(bookPrice);
                         elem.Controls.Add(editBut);
                         elem.Controls.Add(delBut);
 
@@ -184,6 +187,35 @@ namespace ADO.NET_Exam
                     }
                 }
             }
+        }
+
+        private void EditBut_MouseClick(object sender, MouseEventArgs e)
+        {
+            Timer timer = new Timer();
+            timer.Interval = 1;
+            timer.Tick += Timer_Tick;
+            timer.Start();
+
+            MaterialRaisedButton but = sender as MaterialRaisedButton;
+
+            foreach (Control item in but.Parent.Controls)
+            {
+                if (item.Name == "id_book")
+                    CurrId = Convert.ToInt32(item.Text);
+            }
+
+            using (LibraryEntities db = new LibraryEntities())
+            {
+                var book = db.Books.Where(b => b.Id == CurrId).Select(b => new { Title = b.Title, IP = b.ImagePath }).First();
+                bookAlbum.Image = Image.FromFile(book.IP);
+                title_tb.Text = book.Title;
+            }
+        }
+
+        private void Timer_Tick(object sender, EventArgs e)
+        {
+            if (rightPanel.Location.X >= this.Width - rightPanel.Width + 30)
+                rightPanel.Location = new Point(rightPanel.Location.X - 30, rightPanel.Location.Y);
         }
 
         private void materialFlatButton2_Click(object sender, EventArgs e)
@@ -202,6 +234,11 @@ namespace ADO.NET_Exam
                 CurrentPage -= 1;
                 ShowPageOfBooks(BooksSet);
             }
+        }
+
+        private void rightPanel_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

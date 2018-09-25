@@ -27,3 +27,20 @@ C:\Users\Данил\Desktop\ADO.NET-Exam\ADO.NET Exam\ADO.NET Exam\obj\Debug\ADO
 C:\Users\Данил\Desktop\ADO.NET-Exam\ADO.NET Exam\ADO.NET Exam\obj\Debug\ADO.NET Exam.exe
 C:\Users\Данил\Desktop\ADO.NET-Exam\ADO.NET Exam\ADO.NET Exam\obj\Debug\ADO.NET Exam.pdb
 C:\Users\Данил\Desktop\ADO.NET-Exam\ADO.NET Exam\ADO.NET Exam\obj\Debug\ADO.NET_Exam.Form3.resources
+C:\Users\PKO\Desktop\work\ADO.NET-Exam\ADO.NET Exam\ADO.NET Exam\bin\Debug\ADO.NET Exam.exe.config
+C:\Users\PKO\Desktop\work\ADO.NET-Exam\ADO.NET Exam\ADO.NET Exam\bin\Debug\ADO.NET Exam.exe
+C:\Users\PKO\Desktop\work\ADO.NET-Exam\ADO.NET Exam\ADO.NET Exam\bin\Debug\ADO.NET Exam.pdb
+C:\Users\PKO\Desktop\work\ADO.NET-Exam\ADO.NET Exam\ADO.NET Exam\bin\Debug\EntityFramework.dll
+C:\Users\PKO\Desktop\work\ADO.NET-Exam\ADO.NET Exam\ADO.NET Exam\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\PKO\Desktop\work\ADO.NET-Exam\ADO.NET Exam\ADO.NET Exam\bin\Debug\EntityFramework.xml
+C:\Users\PKO\Desktop\work\ADO.NET-Exam\ADO.NET Exam\ADO.NET Exam\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\PKO\Desktop\work\ADO.NET-Exam\ADO.NET Exam\ADO.NET Exam\obj\Debug\ADO.NET Exam.csprojResolveAssemblyReference.cache
+C:\Users\PKO\Desktop\work\ADO.NET-Exam\ADO.NET Exam\ADO.NET Exam\obj\Debug\ADO.NET_Exam.Form1.resources
+C:\Users\PKO\Desktop\work\ADO.NET-Exam\ADO.NET Exam\ADO.NET Exam\obj\Debug\ADO.NET_Exam.Form2.resources
+C:\Users\PKO\Desktop\work\ADO.NET-Exam\ADO.NET Exam\ADO.NET Exam\obj\Debug\ADO.NET_Exam.Form3.resources
+C:\Users\PKO\Desktop\work\ADO.NET-Exam\ADO.NET Exam\ADO.NET Exam\obj\Debug\ADO.NET_Exam.Properties.Resources.resources
+C:\Users\PKO\Desktop\work\ADO.NET-Exam\ADO.NET Exam\ADO.NET Exam\obj\Debug\ADO.NET Exam.csproj.GenerateResource.Cache
+C:\Users\PKO\Desktop\work\ADO.NET-Exam\ADO.NET Exam\ADO.NET Exam\obj\Debug\ADO.NET Exam.exe
+C:\Users\PKO\Desktop\work\ADO.NET-Exam\ADO.NET Exam\ADO.NET Exam\obj\Debug\ADO.NET Exam.pdb
+C:\Users\PKO\Desktop\work\ADO.NET-Exam\ADO.NET Exam\ADO.NET Exam\bin\Debug\MaterialSkin.dll
+C:\Users\PKO\Desktop\work\ADO.NET-Exam\ADO.NET Exam\ADO.NET Exam\obj\Debug\ADO.NET_Exam.Form4.resources

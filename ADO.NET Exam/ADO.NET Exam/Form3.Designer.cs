@@ -38,6 +38,13 @@
             this.paginationPanel = new System.Windows.Forms.Panel();
             this.materialFlatButton2 = new MaterialSkin.Controls.MaterialFlatButton();
             this.materialFlatButton1 = new MaterialSkin.Controls.MaterialFlatButton();
+            this.rightPanel = new System.Windows.Forms.Panel();
+            this.title_tb = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.bookAlbum = new System.Windows.Forms.PictureBox();
+            this.materialSingleLineTextField2 = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.materialSingleLineTextField3 = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.rightPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bookAlbum)).BeginInit();
             this.SuspendLayout();
             // 
             // mainPanel
@@ -159,11 +166,79 @@
             this.materialFlatButton1.UseVisualStyleBackColor = true;
             this.materialFlatButton1.Click += new System.EventHandler(this.materialFlatButton1_Click);
             // 
+            // rightPanel
+            // 
+            this.rightPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(54)))), ((int)(((byte)(12)))));
+            this.rightPanel.Controls.Add(this.materialSingleLineTextField3);
+            this.rightPanel.Controls.Add(this.materialSingleLineTextField2);
+            this.rightPanel.Controls.Add(this.bookAlbum);
+            this.rightPanel.Controls.Add(this.title_tb);
+            this.rightPanel.Location = new System.Drawing.Point(1379, 63);
+            this.rightPanel.Name = "rightPanel";
+            this.rightPanel.Size = new System.Drawing.Size(241, 1620);
+            this.rightPanel.TabIndex = 49;
+            this.rightPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.rightPanel_Paint);
+            // 
+            // title_tb
+            // 
+            this.title_tb.Depth = 0;
+            this.title_tb.Hint = "";
+            this.title_tb.Location = new System.Drawing.Point(30, 260);
+            this.title_tb.MouseState = MaterialSkin.MouseState.HOVER;
+            this.title_tb.Name = "title_tb";
+            this.title_tb.PasswordChar = '\0';
+            this.title_tb.SelectedText = "";
+            this.title_tb.SelectionLength = 0;
+            this.title_tb.SelectionStart = 0;
+            this.title_tb.Size = new System.Drawing.Size(199, 23);
+            this.title_tb.TabIndex = 0;
+            this.title_tb.UseSystemPasswordChar = false;
+            // 
+            // bookAlbum
+            // 
+            this.bookAlbum.Location = new System.Drawing.Point(80, 56);
+            this.bookAlbum.Name = "bookAlbum";
+            this.bookAlbum.Size = new System.Drawing.Size(93, 136);
+            this.bookAlbum.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.bookAlbum.TabIndex = 1;
+            this.bookAlbum.TabStop = false;
+            // 
+            // materialSingleLineTextField2
+            // 
+            this.materialSingleLineTextField2.Depth = 0;
+            this.materialSingleLineTextField2.Hint = "";
+            this.materialSingleLineTextField2.Location = new System.Drawing.Point(30, 306);
+            this.materialSingleLineTextField2.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialSingleLineTextField2.Name = "materialSingleLineTextField2";
+            this.materialSingleLineTextField2.PasswordChar = '\0';
+            this.materialSingleLineTextField2.SelectedText = "";
+            this.materialSingleLineTextField2.SelectionLength = 0;
+            this.materialSingleLineTextField2.SelectionStart = 0;
+            this.materialSingleLineTextField2.Size = new System.Drawing.Size(199, 23);
+            this.materialSingleLineTextField2.TabIndex = 50;
+            this.materialSingleLineTextField2.UseSystemPasswordChar = false;
+            // 
+            // materialSingleLineTextField3
+            // 
+            this.materialSingleLineTextField3.Depth = 0;
+            this.materialSingleLineTextField3.Hint = "";
+            this.materialSingleLineTextField3.Location = new System.Drawing.Point(30, 356);
+            this.materialSingleLineTextField3.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialSingleLineTextField3.Name = "materialSingleLineTextField3";
+            this.materialSingleLineTextField3.PasswordChar = '\0';
+            this.materialSingleLineTextField3.SelectedText = "";
+            this.materialSingleLineTextField3.SelectionLength = 0;
+            this.materialSingleLineTextField3.SelectionStart = 0;
+            this.materialSingleLineTextField3.Size = new System.Drawing.Size(199, 23);
+            this.materialSingleLineTextField3.TabIndex = 50;
+            this.materialSingleLineTextField3.UseSystemPasswordChar = false;
+            // 
             // Form3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1620, 873);
+            this.Controls.Add(this.rightPanel);
             this.Controls.Add(this.paginationPanel);
             this.Controls.Add(this.materialFlatButton2);
             this.Controls.Add(this.materialFlatButton1);
@@ -177,6 +252,8 @@
             this.Name = "Form3";
             this.Text = "Admin Panel";
             this.Load += new System.EventHandler(this.Form3_Load);
+            this.rightPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.bookAlbum)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -194,5 +271,10 @@
         private System.Windows.Forms.Panel paginationPanel;
         private MaterialSkin.Controls.MaterialFlatButton materialFlatButton2;
         private MaterialSkin.Controls.MaterialFlatButton materialFlatButton1;
+        private System.Windows.Forms.Panel rightPanel;
+        private MaterialSkin.Controls.MaterialSingleLineTextField materialSingleLineTextField3;
+        private MaterialSkin.Controls.MaterialSingleLineTextField materialSingleLineTextField2;
+        private System.Windows.Forms.PictureBox bookAlbum;
+        private MaterialSkin.Controls.MaterialSingleLineTextField title_tb;
     }
 }
