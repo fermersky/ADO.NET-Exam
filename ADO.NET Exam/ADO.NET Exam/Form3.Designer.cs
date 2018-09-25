@@ -48,6 +48,7 @@
             this.materialLabel6 = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel7 = new MaterialSkin.Controls.MaterialLabel();
             this.authors_tb = new MetroFramework.Controls.MetroComboBox();
+            this.materialRaisedButton2 = new MaterialSkin.Controls.MaterialRaisedButton();
             this.rightPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bookAlbum)).BeginInit();
             this.SuspendLayout();
@@ -135,6 +136,7 @@
             // rightPanel
             // 
             this.rightPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.rightPanel.Controls.Add(this.materialRaisedButton2);
             this.rightPanel.Controls.Add(this.materialLabel7);
             this.rightPanel.Controls.Add(this.materialLabel5);
             this.rightPanel.Controls.Add(this.authors_tb);
@@ -306,6 +308,19 @@
             this.authors_tb.TabIndex = 54;
             this.authors_tb.UseSelectable = true;
             // 
+            // materialRaisedButton2
+            // 
+            this.materialRaisedButton2.Depth = 0;
+            this.materialRaisedButton2.Location = new System.Drawing.Point(182, 248);
+            this.materialRaisedButton2.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialRaisedButton2.Name = "materialRaisedButton2";
+            this.materialRaisedButton2.Primary = true;
+            this.materialRaisedButton2.Size = new System.Drawing.Size(75, 23);
+            this.materialRaisedButton2.TabIndex = 55;
+            this.materialRaisedButton2.Text = "change";
+            this.materialRaisedButton2.UseVisualStyleBackColor = true;
+            this.materialRaisedButton2.Click += new System.EventHandler(this.materialRaisedButton2_Click);
+            // 
             // Form3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -352,5 +367,6 @@
         private MaterialSkin.Controls.MaterialLabel materialLabel1;
         private MaterialSkin.Controls.MaterialLabel materialLabel7;
         private MetroFramework.Controls.MetroComboBox authors_tb;
+        private MaterialSkin.Controls.MaterialRaisedButton materialRaisedButton2;
     }
 }

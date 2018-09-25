@@ -264,10 +264,16 @@ namespace ADO.NET_Exam
 
         private void materialRaisedButton1_Click(object sender, EventArgs e)
         {
-            //Timer timer = new Timer();
-            //timer.Interval = 1;
-            //timer.Tick += Timer_Tick2;
-            //timer.Start();
+            using (LibraryEntities db = new LibraryEntities())
+            {
+                var currBook = db.Books
+                        .Where(b => b.Id == CurrId);
+
+                Books newBook = new Books
+                {
+
+                };
+            }
 
             rightPanel.Visible = false;
         }
@@ -278,6 +284,11 @@ namespace ADO.NET_Exam
             if (rightPanel.Location.X <= this.Width)
                 rightPanel.Location = new Point(rightPanel.Location.X + 5, rightPanel.Location.Y);
             else t.Stop();
+        }
+
+        private void materialRaisedButton2_Click(object sender, EventArgs e)
+        {
+           // OpenFileDialog fd;
         }
     }
 }
