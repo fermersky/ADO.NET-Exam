@@ -20,6 +20,7 @@ namespace ADO.NET_Exam
         private List<Books> BooksSet;
 
         public double MaxPages { get; set; }
+        public string CurrUserName { get; set; }
 
 
         public Form1()
@@ -41,10 +42,16 @@ namespace ADO.NET_Exam
 
                 double d = Convert.ToDouble(BooksSet.Count) / 6.0;
                 MaxPages = Math.Ceiling(d);
+
+                var usr = db.Users.Where(u => u.Lgn == "guest").First();
+                CurrUserName = usr.Lgn;
+                user_login_tb.Text = usr.Lgn;
             }
 
-            Form3 form = new Form3();
-            form.ShowDialog();
+            user_img.Image = Image.FromFile("empty_user.png");
+
+           // Form3 form = new Form3();
+           // form.ShowDialog();
         }
 
 
@@ -120,6 +127,7 @@ namespace ADO.NET_Exam
                         bookId.Location = new Point(12, 18);
                         bookId.Font = new Font("Segoe", 12, FontStyle.Regular);
                         bookId.Size = new Size(32, 25);
+                        bookId.Name = "id_book_lb";
 
                         PictureBox pb = new PictureBox();
                         pb.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -172,6 +180,7 @@ namespace ADO.NET_Exam
                         trackBut.Text = "buy";
                         trackBut.Size = new Size(107, 34);
                         trackBut.Location = new Point(1089, 12);
+                        trackBut.Click += TrackBut_Click;
 
 
 
@@ -190,18 +199,26 @@ namespace ADO.NET_Exam
             }
         }
 
+        private void TrackBut_Click(object sender, EventArgs e) // buy but
+        {
+            using (LibraryEntities db = new LibraryEntities())
+            {
+                int user_id = db.Users.Where(u => u.Lgn == CurrUserName).Select(u => u.Id).First();
+                int book_id;
 
+                Button but = sender as Button;
+
+                foreach (Control item in but.Parent.Controls)
+                    if (item.Name == "id_book_lb")
+                        book_id = int.Parse(item.Text);
+
+                
+            }
+        }
 
         private void materialRaisedButton10_Click(object sender, EventArgs e)
         {
-            Button but = sender as Button;
-            foreach (Control item in but.Parent.Controls)
-            {
-                if (item.Name == "label1")
-                {
-                    MessageBox.Show(item.Text);
-                }
-            }
+            
         }
 
         private void Form1_Resize(object sender, EventArgs e)
@@ -212,6 +229,7 @@ namespace ADO.NET_Exam
         private void materialFlatButton3_Click(object sender, EventArgs e)
         {
             Form2 form = new Form2();
+            form.Text = "Login admin";
             form.Owner = this;
 
             form.Show();
@@ -273,11 +291,40 @@ namespace ADO.NET_Exam
                     ShowPageOfBooks(BooksSet);
                 }
             }
+            else if (Genre_radio.Checked)
+            {
+                using (LibraryEntities db = new LibraryEntities())
+                {
+                    var filtered = (from b in db.Books
+                                    where b.Genres.GenreName.Contains(search_field.Text)
+                                          && b.IsDeleted != true
+                                    orderby b.Id
+                                    select b)
+                                    .Include("Authors")
+                                    .Include("Genres")
+                                    .ToList();
+
+                    paginationPanel.Controls.Clear();
+                    BooksSet = filtered;
+                    ShowPageOfBooks(BooksSet);
+                }
+            }
         }
 
         private void materialSingleLineTextField1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Form2 form = new Form2();
+            form.Text = "Login user";
+            form.Owner = this;
+
+            form.ShowDialog();
+            user_login_tb.Text = CurrUserName;
+            button1.Visible = false;
         }
     } 
 }

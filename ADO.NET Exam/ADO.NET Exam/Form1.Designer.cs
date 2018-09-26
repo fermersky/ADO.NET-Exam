@@ -42,17 +42,18 @@
             this.materialLabel6 = new MaterialSkin.Controls.MaterialLabel();
             this.Title_radio = new MaterialSkin.Controls.MaterialRadioButton();
             this.Author_radio = new MaterialSkin.Controls.MaterialRadioButton();
-            this.metroTrackBar1 = new MetroFramework.Controls.MetroTrackBar();
-            this.materialLabel7 = new MaterialSkin.Controls.MaterialLabel();
-            this.materialLabel9 = new MaterialSkin.Controls.MaterialLabel();
-            this.materialRaisedButton1 = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.count_within = new MaterialSkin.Controls.MaterialRaisedButton();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.materialFlatButton3 = new MaterialSkin.Controls.MaterialFlatButton();
-            this.materialRaisedButton2 = new MaterialSkin.Controls.MaterialRaisedButton();
-            this.materialRaisedButton3 = new MaterialSkin.Controls.MaterialRaisedButton();
             this.mainPanel = new System.Windows.Forms.Panel();
             this.paginationPanel = new System.Windows.Forms.Panel();
+            this.Genre_radio = new MaterialSkin.Controls.MaterialRadioButton();
+            this.materialLabel7 = new MaterialSkin.Controls.MaterialLabel();
+            this.user_login_tb = new MaterialSkin.Controls.MaterialLabel();
+            this.user_img = new System.Windows.Forms.PictureBox();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.user_img)).BeginInit();
             this.SuspendLayout();
             // 
             // materialFlatButton1
@@ -225,59 +226,22 @@
             this.Author_radio.Text = "Автор";
             this.Author_radio.UseVisualStyleBackColor = true;
             // 
-            // metroTrackBar1
+            // count_within
             // 
-            this.metroTrackBar1.BackColor = System.Drawing.Color.Transparent;
-            this.metroTrackBar1.Location = new System.Drawing.Point(903, 165);
-            this.metroTrackBar1.Maximum = 10;
-            this.metroTrackBar1.Name = "metroTrackBar1";
-            this.metroTrackBar1.Size = new System.Drawing.Size(144, 23);
-            this.metroTrackBar1.TabIndex = 23;
-            this.metroTrackBar1.Text = "metroTrackBar1";
-            this.metroTrackBar1.Value = 2;
-            // 
-            // materialLabel7
-            // 
-            this.materialLabel7.AutoSize = true;
-            this.materialLabel7.Depth = 0;
-            this.materialLabel7.Font = new System.Drawing.Font("Roboto", 11F);
-            this.materialLabel7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel7.Location = new System.Drawing.Point(852, 165);
-            this.materialLabel7.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel7.Name = "materialLabel7";
-            this.materialLabel7.Size = new System.Drawing.Size(45, 19);
-            this.materialLabel7.TabIndex = 24;
-            this.materialLabel7.Text = "0.99$";
-            // 
-            // materialLabel9
-            // 
-            this.materialLabel9.AutoSize = true;
-            this.materialLabel9.Depth = 0;
-            this.materialLabel9.Font = new System.Drawing.Font("Roboto", 11F);
-            this.materialLabel9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel9.Location = new System.Drawing.Point(1055, 165);
-            this.materialLabel9.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel9.Name = "materialLabel9";
-            this.materialLabel9.Size = new System.Drawing.Size(45, 19);
-            this.materialLabel9.TabIndex = 26;
-            this.materialLabel9.Text = "9.99$";
-            // 
-            // materialRaisedButton1
-            // 
-            this.materialRaisedButton1.Depth = 0;
-            this.materialRaisedButton1.Location = new System.Drawing.Point(1521, 195);
-            this.materialRaisedButton1.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialRaisedButton1.Name = "materialRaisedButton1";
-            this.materialRaisedButton1.Primary = true;
-            this.materialRaisedButton1.Size = new System.Drawing.Size(40, 37);
-            this.materialRaisedButton1.TabIndex = 33;
-            this.materialRaisedButton1.Text = "0";
-            this.materialRaisedButton1.UseVisualStyleBackColor = true;
+            this.count_within.Depth = 0;
+            this.count_within.Location = new System.Drawing.Point(1523, 309);
+            this.count_within.MouseState = MaterialSkin.MouseState.HOVER;
+            this.count_within.Name = "count_within";
+            this.count_within.Primary = true;
+            this.count_within.Size = new System.Drawing.Size(40, 37);
+            this.count_within.TabIndex = 33;
+            this.count_within.Text = "0";
+            this.count_within.UseVisualStyleBackColor = true;
             // 
             // pictureBox7
             // 
             this.pictureBox7.Image = global::ADO.NET_Exam.Properties.Resources.bin;
-            this.pictureBox7.Location = new System.Drawing.Point(1327, 165);
+            this.pictureBox7.Location = new System.Drawing.Point(1327, 266);
             this.pictureBox7.Name = "pictureBox7";
             this.pictureBox7.Size = new System.Drawing.Size(281, 235);
             this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -300,30 +264,6 @@
             this.materialFlatButton3.UseVisualStyleBackColor = true;
             this.materialFlatButton3.Click += new System.EventHandler(this.materialFlatButton3_Click);
             // 
-            // materialRaisedButton2
-            // 
-            this.materialRaisedButton2.Depth = 0;
-            this.materialRaisedButton2.Location = new System.Drawing.Point(1427, 646);
-            this.materialRaisedButton2.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialRaisedButton2.Name = "materialRaisedButton2";
-            this.materialRaisedButton2.Primary = true;
-            this.materialRaisedButton2.Size = new System.Drawing.Size(47, 36);
-            this.materialRaisedButton2.TabIndex = 35;
-            this.materialRaisedButton2.Text = "✎";
-            this.materialRaisedButton2.UseVisualStyleBackColor = true;
-            // 
-            // materialRaisedButton3
-            // 
-            this.materialRaisedButton3.Depth = 0;
-            this.materialRaisedButton3.Location = new System.Drawing.Point(1480, 646);
-            this.materialRaisedButton3.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialRaisedButton3.Name = "materialRaisedButton3";
-            this.materialRaisedButton3.Primary = true;
-            this.materialRaisedButton3.Size = new System.Drawing.Size(47, 36);
-            this.materialRaisedButton3.TabIndex = 36;
-            this.materialRaisedButton3.Text = "X";
-            this.materialRaisedButton3.UseVisualStyleBackColor = true;
-            // 
             // mainPanel
             // 
             this.mainPanel.Location = new System.Drawing.Point(23, 266);
@@ -333,10 +273,73 @@
             // 
             // paginationPanel
             // 
-            this.paginationPanel.Location = new System.Drawing.Point(457, 818);
+            this.paginationPanel.Location = new System.Drawing.Point(511, 819);
             this.paginationPanel.Name = "paginationPanel";
             this.paginationPanel.Size = new System.Drawing.Size(266, 39);
             this.paginationPanel.TabIndex = 39;
+            // 
+            // Genre_radio
+            // 
+            this.Genre_radio.AutoSize = true;
+            this.Genre_radio.Depth = 0;
+            this.Genre_radio.Font = new System.Drawing.Font("Roboto", 10F);
+            this.Genre_radio.Location = new System.Drawing.Point(1092, 105);
+            this.Genre_radio.Margin = new System.Windows.Forms.Padding(0);
+            this.Genre_radio.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.Genre_radio.MouseState = MaterialSkin.MouseState.HOVER;
+            this.Genre_radio.Name = "Genre_radio";
+            this.Genre_radio.Ripple = true;
+            this.Genre_radio.Size = new System.Drawing.Size(65, 30);
+            this.Genre_radio.TabIndex = 40;
+            this.Genre_radio.TabStop = true;
+            this.Genre_radio.Text = "Жанр";
+            this.Genre_radio.UseVisualStyleBackColor = true;
+            // 
+            // materialLabel7
+            // 
+            this.materialLabel7.AutoSize = true;
+            this.materialLabel7.Depth = 0;
+            this.materialLabel7.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel7.Location = new System.Drawing.Point(1375, 112);
+            this.materialLabel7.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel7.Name = "materialLabel7";
+            this.materialLabel7.Size = new System.Drawing.Size(114, 19);
+            this.materialLabel7.TabIndex = 41;
+            this.materialLabel7.Text = "Вы вошли как:";
+            // 
+            // user_login_tb
+            // 
+            this.user_login_tb.AutoSize = true;
+            this.user_login_tb.Depth = 0;
+            this.user_login_tb.Font = new System.Drawing.Font("Roboto", 11F);
+            this.user_login_tb.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.user_login_tb.Location = new System.Drawing.Point(1495, 112);
+            this.user_login_tb.MouseState = MaterialSkin.MouseState.HOVER;
+            this.user_login_tb.Name = "user_login_tb";
+            this.user_login_tb.Size = new System.Drawing.Size(41, 19);
+            this.user_login_tb.TabIndex = 42;
+            this.user_login_tb.Text = "label";
+            // 
+            // user_img
+            // 
+            this.user_img.Location = new System.Drawing.Point(1553, 102);
+            this.user_img.Name = "user_img";
+            this.user_img.Size = new System.Drawing.Size(27, 31);
+            this.user_img.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.user_img.TabIndex = 43;
+            this.user_img.TabStop = false;
+            // 
+            // button1
+            // 
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Location = new System.Drawing.Point(1540, 139);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(52, 28);
+            this.button1.TabIndex = 44;
+            this.button1.Text = "Войти";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Form1
             // 
@@ -344,16 +347,16 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             this.ClientSize = new System.Drawing.Size(1620, 873);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.user_img);
+            this.Controls.Add(this.user_login_tb);
+            this.Controls.Add(this.materialLabel7);
+            this.Controls.Add(this.Genre_radio);
             this.Controls.Add(this.paginationPanel);
             this.Controls.Add(this.mainPanel);
-            this.Controls.Add(this.materialRaisedButton3);
-            this.Controls.Add(this.materialRaisedButton2);
             this.Controls.Add(this.materialFlatButton3);
-            this.Controls.Add(this.materialRaisedButton1);
+            this.Controls.Add(this.count_within);
             this.Controls.Add(this.pictureBox7);
-            this.Controls.Add(this.materialLabel9);
-            this.Controls.Add(this.materialLabel7);
-            this.Controls.Add(this.metroTrackBar1);
             this.Controls.Add(this.Author_radio);
             this.Controls.Add(this.Title_radio);
             this.Controls.Add(this.materialLabel6);
@@ -370,6 +373,7 @@
             this.Text = "Google Play Music";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.user_img)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -389,16 +393,16 @@
         private MaterialSkin.Controls.MaterialLabel materialLabel6;
         private MaterialSkin.Controls.MaterialRadioButton Title_radio;
         private MaterialSkin.Controls.MaterialRadioButton Author_radio;
-        private MetroFramework.Controls.MetroTrackBar metroTrackBar1;
-        private MaterialSkin.Controls.MaterialLabel materialLabel7;
-        private MaterialSkin.Controls.MaterialLabel materialLabel9;
         private System.Windows.Forms.PictureBox pictureBox7;
-        private MaterialSkin.Controls.MaterialRaisedButton materialRaisedButton1;
+        private MaterialSkin.Controls.MaterialRaisedButton count_within;
         private MaterialSkin.Controls.MaterialFlatButton materialFlatButton3;
-        private MaterialSkin.Controls.MaterialRaisedButton materialRaisedButton2;
-        private MaterialSkin.Controls.MaterialRaisedButton materialRaisedButton3;
         private System.Windows.Forms.Panel mainPanel;
         private System.Windows.Forms.Panel paginationPanel;
+        private MaterialSkin.Controls.MaterialRadioButton Genre_radio;
+        private MaterialSkin.Controls.MaterialLabel materialLabel7;
+        private MaterialSkin.Controls.MaterialLabel user_login_tb;
+        private System.Windows.Forms.PictureBox user_img;
+        private System.Windows.Forms.Button button1;
     }
 }
 

@@ -133,22 +133,45 @@ namespace ADO.NET_Exam
         {
             using (LibraryEntities db = new LibraryEntities())
             {
-                
-                try
+                if (this.Text == "Login admin")
                 {
-                    var users = (from u in db.Admins
-                                 where u.Lgn == login_tb.Text
-                                 && u.Pwd == pass_tb.Text
-                                 select u.Id).First();
+                    try
+                    {
+                        var users = (from u in db.Admins
+                                     where u.Lgn == login_tb.Text
+                                     && u.Pwd == pass_tb.Text
+                                     select u.Id).First();
 
-                    Form3 form3 = new Form3();
-                    form3.Show();
+                        Form3 form3 = new Form3();
+                        form3.Show();
+                    }
+                    catch (Exception)
+                    {
+                        MessageBox.Show("Loh");
+                        label1.Visible = true;
+                        label2.Visible = true;
+                    }
                 }
-                catch (Exception)
+                else if (this.Text == "Login user")
                 {
-                    MessageBox.Show("Loh");
-                    label1.Visible = true;
-                    label2.Visible = true;
+                    try
+                    {
+                        var users = (from u in db.Users
+                                     where u.Lgn == login_tb.Text
+                                     && u.Pwd == pass_tb.Text
+                                     select new { u.Id, u.Lgn }).First();
+
+                        this.Close();
+
+                        Form1 form = this.Owner as Form1;
+                        form.CurrUserName = users.Lgn;
+                    }
+                    catch (Exception)
+                    {
+                        MessageBox.Show("Loh");
+                        label1.Visible = true;
+                        label2.Visible = true;
+                    }
                 }
 
                 
