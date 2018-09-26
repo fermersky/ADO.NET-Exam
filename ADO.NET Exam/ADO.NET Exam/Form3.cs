@@ -36,6 +36,7 @@ namespace ADO.NET_Exam
             using (LibraryEntities db = new LibraryEntities())
             {
                 BooksSet = (from b in db.Books
+                            where b.IsDeleted != true
                             orderby b.Id
                             select b).Include("Authors").Include("Genres").ToList();
 
@@ -49,26 +50,29 @@ namespace ADO.NET_Exam
 
         private void Form3_Load(object sender, EventArgs e)
         {
-            GeneratePagination(BooksSet);
             ShowPageOfBooks(BooksSet);
         }
 
-        private void GeneratePagination(List<Books> _books)
+        private void GeneratePagination()
         {
-            double d = Convert.ToDouble(BooksSet.Count) / 6.0;
-            MaxPages = Math.Ceiling(d);
-
-            int locy = 3;
-            for (int i = 1; i <= MaxPages; i++)
+            paginationPanel.Controls.Clear();
+            using (LibraryEntities db = new LibraryEntities())
             {
-                MaterialRaisedButton but = new MaterialRaisedButton();
-                but.Text = i.ToString();
-                but.Location = new Point(locy, 3);
-                but.Size = new Size(38, 38);
-                but.MouseClick += But_MouseClick;
-                paginationPanel.Controls.Add(but);
+                double d = Convert.ToDouble(db.Books.Where(b => b.IsDeleted !=true).Count()) / 6.0;
+                MaxPages = Math.Ceiling(d);
 
-                locy += 43;
+                int locy = 3;
+                for (int i = 1; i <= MaxPages; i++)
+                {
+                    MaterialRaisedButton but = new MaterialRaisedButton();
+                    but.Text = i.ToString();
+                    but.Location = new Point(locy, 3);
+                    but.Size = new Size(38, 38);
+                    but.MouseClick += But_MouseClick;
+                    paginationPanel.Controls.Add(but);
+
+                    locy += 43;
+                }
             }
         }
 
@@ -76,12 +80,15 @@ namespace ADO.NET_Exam
         {
             MaterialRaisedButton but = sender as MaterialRaisedButton;
             CurrentPage = int.Parse(but.Text) - 1;
-            ShowPageOfBooks(BooksSet);
+            using (LibraryEntities db = new LibraryEntities())
+            {
+                ShowPageOfBooks(db.Books.ToList());
+            }
         }
 
         private void ShowPageOfBooks(List<Books> _books)
         {
-            GeneratePagination(_books);
+            GeneratePagination();
 
             using (LibraryEntities db = new LibraryEntities())
             {
@@ -89,6 +96,7 @@ namespace ADO.NET_Exam
                 int startHeight = 0;
 
                 var Books = (from d in _books
+                             where d.IsDeleted != true
                              select d).Skip(CurrentPage * 6).Take(6).ToList();
                 mainPanel.Controls.Clear();
 
@@ -163,7 +171,7 @@ namespace ADO.NET_Exam
             }
         }
 
-        private void DelBut_Click(object sender, EventArgs e)
+        private void DelBut_Click(object sender, EventArgs e) // delete but
         {
             MaterialRaisedButton but = sender as MaterialRaisedButton;
 
@@ -180,7 +188,7 @@ namespace ADO.NET_Exam
                 if (dr == DialogResult.Yes)
                 {
                     var toDelete = db.Books.Where(b => b.Id == CurrId).First();
-                    db.Books.Remove(toDelete);
+                    toDelete.IsDeleted = true;
                     db.SaveChanges();
                 }
 
@@ -190,15 +198,14 @@ namespace ADO.NET_Exam
             
         }
 
-        private void EditBut_MouseClick(object sender, MouseEventArgs e)
+        private void EditBut_MouseClick(object sender, MouseEventArgs e) // edit but
         {
-            //Timer timer = new Timer();
-            //timer.Interval = 1;
-            //timer.Tick += Timer_Tick;
-            //timer.Start();
 
             rightPanel.Visible = true;
-            
+            saveBut.Visible = true;
+            addBut.Visible = false;
+
+
 
             MaterialRaisedButton but = sender as MaterialRaisedButton;
 
@@ -212,61 +219,60 @@ namespace ADO.NET_Exam
             {
                 var book = db.Books
                     .Where(b => b.Id == CurrId)
-                    .Select(b => new { Author = b.Authors, Title = b.Title, IP = b.ImagePath, Price = b.Price, Publ = b.Publisher, Genres = b.Genres })
                     .First();
 
-                imgPath = book.IP;
+                imgPath = book.ImagePath;
 
-                bookAlbum.Image = Image.FromFile(book.IP);
+                bookAlbum.Image = Image.FromFile(book.ImagePath);
                 title_tb.Text = book.Title;
                 price_tb.Text = book.Price;
-                publ_tb.Text = book.Publ;
-                genres_cb.Text = book.Genres.GenreName;
-                authors_tb.Text = book.Author.FirstName + " " + book.Author.LastName;
+                publ_tb.Text = book.Publisher;
+                pages_tb.Text = book.Pages.ToString();
+                sequel_Tb.Text = book.IsSequel;
+
 
                 var genres = db.Genres.Select(g => new { Genre = g.GenreName }).ToList();
                 genres_cb.Items.Clear();
                 foreach (var item in genres)
                     genres_cb.Items.Add(item.Genre);
 
-
                 var authors = db.Authors.Select(g => new { FN = g.FirstName, LN = g.LastName }).ToList();
                 authors_tb.Items.Clear();
                 foreach (var item in authors)
                     authors_tb.Items.Add(item.FN + " " + item.LN);
+
+                genres_cb.Text = book.Genres.GenreName;
+                authors_tb.Text = book.Authors.FirstName + " " + book.Authors.LastName;
             }
         }
 
-        private void Timer_Tick(object sender, EventArgs e)
-        {
-            Timer t = sender as Timer;
-            if (rightPanel.Location.X >= this.Width - rightPanel.Width + 30)
-                rightPanel.Location = new Point(rightPanel.Location.X - 10, rightPanel.Location.Y);
-            else t.Stop();
-        }
 
-        private void materialFlatButton2_Click(object sender, EventArgs e)
+        private void materialFlatButton2_Click(object sender, EventArgs e) // next page
         {
             if (CurrentPage < MaxPages - 1)
             {
                 CurrentPage += 1;
-                ShowPageOfBooks(BooksSet);
+
+                using (LibraryEntities db = new LibraryEntities())
+                {
+                    ShowPageOfBooks(db.Books.ToList());
+                }
             }
         }
 
-        private void materialFlatButton1_Click(object sender, EventArgs e)
+        private void materialFlatButton1_Click(object sender, EventArgs e) // prev page
         {
             if (CurrentPage >= 1)
             {
                 CurrentPage -= 1;
-                ShowPageOfBooks(BooksSet);
+                using (LibraryEntities db = new LibraryEntities())
+                {
+                    ShowPageOfBooks(db.Books.ToList());
+                }
             }
         }
 
-        private void rightPanel_Paint(object sender, PaintEventArgs e)
-        {
 
-        }
 
         private void materialRaisedButton1_Click(object sender, EventArgs e) // SaveChanges
         {
@@ -284,10 +290,10 @@ namespace ADO.NET_Exam
 
                 willEdit.Discount = currBook.Discount;
                 willEdit.IsDeleted = false;
-                willEdit.IsSequel = "nope";
+                willEdit.IsSequel = sequel_Tb.Text;
                 willEdit.PublishDate = currBook.PublishDate;
                 willEdit.PriceForSale = currBook.Price;
-                willEdit.Pages = currBook.Pages;
+                willEdit.Pages = int.Parse(pages_tb.Text);
                 willEdit.ImagePath = imgPath;
 
                 willEdit.Title = title_tb.Text;
@@ -307,13 +313,7 @@ namespace ADO.NET_Exam
 
         }
 
-        private void Timer_Tick2(object sender, EventArgs e)
-        {
-            Timer t = sender as Timer;
-            if (rightPanel.Location.X <= this.Width)
-                rightPanel.Location = new Point(rightPanel.Location.X + 5, rightPanel.Location.Y);
-            else t.Stop();
-        }
+
 
         private void materialRaisedButton2_Click(object sender, EventArgs e) // Change Photo Button
         {
@@ -327,6 +327,71 @@ namespace ADO.NET_Exam
             }
 
             bookAlbum.Image = Image.FromFile(imgPath);
+        }
+
+        private void materialRaisedButton3_Click(object sender, EventArgs e) // fill fileds before add
+        {
+            bookAlbum.Image = Image.FromFile("default.jpg");
+            rightPanel.Visible = true;
+            saveBut.Visible = false;
+            addBut.Visible = true;
+
+            genres_cb.Items.Clear();
+            authors_tb.Items.Clear();
+
+            imgPath = "default.jpg";
+
+            foreach (Control item in rightPanel.Controls)
+            {
+                if (item.GetType() == typeof(MaterialSingleLineTextField))
+                {
+                    item.Text = "";
+                }
+            }
+
+            using (LibraryEntities db = new LibraryEntities())
+            {
+                var genres = db.Genres.Select(g => new { Genre = g.GenreName }).ToList();
+                foreach (var item in genres)
+                    genres_cb.Items.Add(item.Genre);
+
+
+                var authors = db.Authors.Select(g => new { FN = g.FirstName, LN = g.LastName }).ToList();
+                foreach (var item in authors)
+                    authors_tb.Items.Add(item.FN + " " + item.LN);
+            }
+        }
+
+        private void materialRaisedButton4_Click(object sender, EventArgs e) // add book
+        {
+            
+            using (LibraryEntities db = new LibraryEntities())
+            {
+                var genreId = db.Genres.Where(g => g.GenreName == genres_cb.Text).First();
+                var authorId = db.Authors.Where(g => g.FirstName + " " + g.LastName == authors_tb.Text).First();
+
+                Books newBook = new Books()
+                {
+                    Discount = 0,
+                    IsDeleted = false,
+                    IsSequel = sequel_Tb.Text,
+                    PublishDate = DateTime.Now,
+                    PriceForSale = price_tb.Text,
+                    Pages = int.Parse(pages_tb.Text),
+                    ImagePath = imgPath,
+
+                    Title = title_tb.Text,
+                    Price = price_tb.Text,
+                    Publisher = publ_tb.Text,
+
+                    Id_Genre = genreId.Id,
+                    Id_Author = authorId.Id
+                };
+
+                db.Books.Add(newBook);
+                db.SaveChanges();
+                ShowPageOfBooks(db.Books.ToList());
+            }
         }
     }
 }

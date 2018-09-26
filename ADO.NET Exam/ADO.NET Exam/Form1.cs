@@ -34,6 +34,7 @@ namespace ADO.NET_Exam
             using (LibraryEntities db = new LibraryEntities())
             {
                 BooksSet = (from b in db.Books
+                            where b.IsDeleted != true
                             orderby b.Id
                             select b).Include("Authors").Include("Genres").ToList();
 
@@ -97,6 +98,7 @@ namespace ADO.NET_Exam
                 int startHeight = 0;
 
                 var Books = (from d in _books
+                             where d.IsDeleted != true
                              select d).Skip(CurrentPage * 6).Take(6).ToList();
                 mainPanel.Controls.Clear();
 
@@ -243,6 +245,7 @@ namespace ADO.NET_Exam
                 {
                     var filtered = (from b in db.Books
                                     where b.Title.Contains(search_field.Text)
+                                    && b.IsDeleted != true
                                     orderby b.Id
                                     select b
                                     ).Include("Authors").Include("Genres").ToList();
@@ -256,8 +259,9 @@ namespace ADO.NET_Exam
                 using (LibraryEntities db = new LibraryEntities())
                 {
                     var filtered = (from b in db.Books
-                                    where b.Authors.FirstName.Contains(search_field.Text) ||
-                                          b.Authors.LastName.Contains(search_field.Text)
+                                    where (b.Authors.FirstName.Contains(search_field.Text) ||
+                                          b.Authors.LastName.Contains(search_field.Text)) 
+                                          && b.IsDeleted != true
                                     orderby b.Id
                                     select b)
                                     .Include("Authors")
