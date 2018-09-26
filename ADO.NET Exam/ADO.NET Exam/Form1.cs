@@ -41,6 +41,9 @@ namespace ADO.NET_Exam
                 double d = Convert.ToDouble(BooksSet.Count) / 6.0;
                 MaxPages = Math.Ceiling(d);
             }
+
+            Form3 form = new Form3();
+            form.ShowDialog();
         }
 
 

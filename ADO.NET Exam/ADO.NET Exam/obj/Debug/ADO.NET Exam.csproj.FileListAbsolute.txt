@@ -47,3 +47,8 @@ C:\Users\PKO\Desktop\work\ADO.NET-Exam\ADO.NET Exam\ADO.NET Exam\obj\Debug\ADO.N
 C:\Users\PKO\Desktop\work\ADO.NET-Exam\ADO.NET Exam\ADO.NET Exam\bin\Debug\MetroFramework.Design.dll
 C:\Users\PKO\Desktop\work\ADO.NET-Exam\ADO.NET Exam\ADO.NET Exam\bin\Debug\MetroFramework.dll
 C:\Users\PKO\Desktop\work\ADO.NET-Exam\ADO.NET Exam\ADO.NET Exam\bin\Debug\MetroFramework.Fonts.dll
+C:\Users\Данил\Desktop\ADO.NET-Exam\ADO.NET Exam\ADO.NET Exam\bin\Debug\MaterialSkin.dll
+C:\Users\Данил\Desktop\ADO.NET-Exam\ADO.NET Exam\ADO.NET Exam\bin\Debug\MetroFramework.Design.dll
+C:\Users\Данил\Desktop\ADO.NET-Exam\ADO.NET Exam\ADO.NET Exam\bin\Debug\MetroFramework.dll
+C:\Users\Данил\Desktop\ADO.NET-Exam\ADO.NET Exam\ADO.NET Exam\bin\Debug\MetroFramework.Fonts.dll
+C:\Users\Данил\Desktop\ADO.NET-Exam\ADO.NET Exam\ADO.NET Exam\obj\Debug\ADO.NET_Exam.Form4.resources
