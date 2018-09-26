@@ -21,6 +21,7 @@ namespace ADO.NET_Exam
 
         public double MaxPages { get; set; }
         public string CurrUserName { get; set; }
+        public Bin Bin { get; set; } = new Bin();
 
 
         public Form1()
@@ -248,10 +249,23 @@ namespace ADO.NET_Exam
 
         private void Buy_Click(object sender, EventArgs e) // buy but
         {
+            int book_id = 1;
+            int c = int.Parse(count_within.Text);
+            c++;
+            count_within.Text = c.ToString();
+
+            Button but = sender as Button;
+
+            foreach (Control item in but.Parent.Controls)
+                if (item.Name == "id_book_lb")
+                    book_id = int.Parse(item.Text);
             using (ShopEntities db = new ShopEntities())
             {
-                
+                var byedBook = db.Books.Where(b => b.Id == book_id).Include("Authors").Include("Genres").First();
+                Bin.Books.Add(byedBook);
             }
+
+
         }
 
         private void TrackBut_Click(object sender, EventArgs e) // save but
@@ -385,6 +399,13 @@ namespace ADO.NET_Exam
             user_login_tb.Text = CurrUserName;
             //button1.Visible = false;
             ShowSavedBooks();
+        }
+
+        private void materialRaisedButton1_Click(object sender, EventArgs e)
+        {
+            Form5 form = new Form5();
+            form.Owner = this;
+            form.ShowDialog();
         }
     } 
 }
