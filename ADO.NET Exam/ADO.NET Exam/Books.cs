@@ -14,6 +14,12 @@ namespace ADO.NET_Exam
     
     public partial class Books
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Books()
+        {
+            this.UserBooks = new HashSet<UserBooks>();
+        }
+    
         public int Id { get; set; }
         public string Title { get; set; }
         public string Publisher { get; set; }
@@ -30,5 +36,7 @@ namespace ADO.NET_Exam
     
         public virtual Authors Authors { get; set; }
         public virtual Genres Genres { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<UserBooks> UserBooks { get; set; }
     }
 }

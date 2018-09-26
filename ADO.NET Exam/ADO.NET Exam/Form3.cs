@@ -33,7 +33,7 @@ namespace ADO.NET_Exam
             materialSkinManager.ColorScheme = new ColorScheme(Primary.DeepOrange800, Primary.DeepOrange900, Primary.BlueGrey500, Accent.Red700, TextShade.WHITE);
 
 
-            using (LibraryEntities db = new LibraryEntities())
+            using (ShopEntities db = new ShopEntities())
             {
                 BooksSet = (from b in db.Books
                             where b.IsDeleted != true
@@ -56,7 +56,7 @@ namespace ADO.NET_Exam
         private void GeneratePagination()
         {
             paginationPanel.Controls.Clear();
-            using (LibraryEntities db = new LibraryEntities())
+            using (ShopEntities db = new ShopEntities())
             {
                 double d = Convert.ToDouble(db.Books.Where(b => b.IsDeleted !=true).Count()) / 6.0;
                 MaxPages = Math.Ceiling(d);
@@ -80,7 +80,7 @@ namespace ADO.NET_Exam
         {
             MaterialRaisedButton but = sender as MaterialRaisedButton;
             CurrentPage = int.Parse(but.Text) - 1;
-            using (LibraryEntities db = new LibraryEntities())
+            using (ShopEntities db = new ShopEntities())
             {
                 ShowPageOfBooks(db.Books.ToList());
             }
@@ -90,7 +90,7 @@ namespace ADO.NET_Exam
         {
             GeneratePagination();
 
-            using (LibraryEntities db = new LibraryEntities())
+            using (ShopEntities db = new ShopEntities())
             {
                 int marginTop = 74;
                 int startHeight = 0;
@@ -181,7 +181,7 @@ namespace ADO.NET_Exam
                     CurrId = Convert.ToInt32(item.Text);
             }
 
-            using (LibraryEntities db = new LibraryEntities())
+            using (ShopEntities db = new ShopEntities())
             {
                 DialogResult dr = MessageBox.Show("Are you sure you want to delete this Book?", "Attention!", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
@@ -215,7 +215,7 @@ namespace ADO.NET_Exam
                     CurrId = Convert.ToInt32(item.Text);
             }
 
-            using (LibraryEntities db = new LibraryEntities())
+            using (ShopEntities db = new ShopEntities())
             {
                 var book = db.Books
                     .Where(b => b.Id == CurrId)
@@ -253,7 +253,7 @@ namespace ADO.NET_Exam
             {
                 CurrentPage += 1;
 
-                using (LibraryEntities db = new LibraryEntities())
+                using (ShopEntities db = new ShopEntities())
                 {
                     ShowPageOfBooks(db.Books.ToList());
                 }
@@ -265,7 +265,7 @@ namespace ADO.NET_Exam
             if (CurrentPage >= 1)
             {
                 CurrentPage -= 1;
-                using (LibraryEntities db = new LibraryEntities())
+                using (ShopEntities db = new ShopEntities())
                 {
                     ShowPageOfBooks(db.Books.ToList());
                 }
@@ -276,7 +276,7 @@ namespace ADO.NET_Exam
 
         private void materialRaisedButton1_Click(object sender, EventArgs e) // SaveChanges
         {
-            using (LibraryEntities db = new LibraryEntities())
+            using (ShopEntities db = new ShopEntities())
             {
                 var currBook = db.Books
                         .Where(b => b.Id == CurrId).First();
@@ -349,7 +349,7 @@ namespace ADO.NET_Exam
                 }
             }
 
-            using (LibraryEntities db = new LibraryEntities())
+            using (ShopEntities db = new ShopEntities())
             {
                 var genres = db.Genres.Select(g => new { Genre = g.GenreName }).ToList();
                 foreach (var item in genres)
@@ -365,7 +365,7 @@ namespace ADO.NET_Exam
         private void materialRaisedButton4_Click(object sender, EventArgs e) // add book
         {
             
-            using (LibraryEntities db = new LibraryEntities())
+            using (ShopEntities db = new ShopEntities())
             {
                 var genreId = db.Genres.Where(g => g.GenreName == genres_cb.Text).First();
                 var authorId = db.Authors.Where(g => g.FirstName + " " + g.LastName == authors_tb.Text).First();

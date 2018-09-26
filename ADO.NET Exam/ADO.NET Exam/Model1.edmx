@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="LibraryModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="BookShopModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Admins">
           <Key>
             <PropertyRef Name="Id" />
@@ -47,18 +47,20 @@
           <Property Name="GenreName" Type="varchar" MaxLength="40" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6013: The table/view 'Library.dbo.Sales' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+warning 6013: The table/view 'BookShop.dbo.Sales' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
         <EntityType Name="Sales">
           <Property Name="DateOfSale" Type="date" />
           <Property Name="Price" Type="varchar" MaxLength="20" />
           <Property Name="Id_Book" Type="int" />
         </EntityType>-->
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'Library.dbo.UserBooks' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
         <EntityType Name="UserBooks">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Id_User" Type="int" />
           <Property Name="Id_Book" Type="int" />
-        </EntityType>-->
+        </EntityType>
         <EntityType Name="Users">
           <Key>
             <PropertyRef Name="Id" />
@@ -92,19 +94,38 @@ warning 6013: The table/view 'Library.dbo.UserBooks' does not have a primary key
           </ReferentialConstraint>
         </Association>
         <!--Errors Found During Generation:
-error 6004: The table 'Library.dbo.Sales' is referenced by a relationship, but cannot be found.
-        <Association Name="FK__Sales__Id_Book__1DE57479" />-->
-        <!--Errors Found During Generation:
-error 6004: The table 'Library.dbo.UserBooks' is referenced by a relationship, but cannot be found.
-        <Association Name="FK__UserBooks__Id_Bo__1A14E395" />-->
-        <!--Errors Found During Generation:
-error 6004: The table 'Library.dbo.UserBooks' is referenced by a relationship, but cannot be found.
-        <Association Name="FK__UserBooks__Id_Us__1920BF5C" />-->
-        <EntityContainer Name="LibraryModelStoreContainer">
+error 6004: The table 'BookShop.dbo.Sales' is referenced by a relationship, but cannot be found.
+        <Association Name="FK__Sales__Id_Book__1ED998B2" />-->
+        <Association Name="FK__UserBooks__Id_Bo__1B0907CE">
+          <End Role="Books" Type="Self.Books" Multiplicity="0..1" />
+          <End Role="UserBooks" Type="Self.UserBooks" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Books">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserBooks">
+              <PropertyRef Name="Id_Book" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__UserBooks__Id_Us__1A14E395">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="UserBooks" Type="Self.UserBooks" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserBooks">
+              <PropertyRef Name="Id_User" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="BookShopModelStoreContainer">
           <EntitySet Name="Admins" EntityType="Self.Admins" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Authors" EntityType="Self.Authors" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Books" EntityType="Self.Books" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Genres" EntityType="Self.Genres" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserBooks" EntityType="Self.UserBooks" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK__Books__Id_Author__145C0A3F" Association="Self.FK__Books__Id_Author__145C0A3F">
             <End Role="Authors" EntitySet="Authors" />
@@ -114,12 +135,20 @@ error 6004: The table 'Library.dbo.UserBooks' is referenced by a relationship, b
             <End Role="Genres" EntitySet="Genres" />
             <End Role="Books" EntitySet="Books" />
           </AssociationSet>
+          <AssociationSet Name="FK__UserBooks__Id_Bo__1B0907CE" Association="Self.FK__UserBooks__Id_Bo__1B0907CE">
+            <End Role="Books" EntitySet="Books" />
+            <End Role="UserBooks" EntitySet="UserBooks" />
+          </AssociationSet>
+          <AssociationSet Name="FK__UserBooks__Id_Us__1A14E395" Association="Self.FK__UserBooks__Id_Us__1A14E395">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="UserBooks" EntitySet="UserBooks" />
+          </AssociationSet>
         </EntityContainer>
       </Schema>
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="LibraryModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="BookShopModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="Admins">
           <Key>
             <PropertyRef Name="Id" />
@@ -156,6 +185,7 @@ error 6004: The table 'Library.dbo.UserBooks' is referenced by a relationship, b
           <Property Name="ImagePath" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Authors" Relationship="Self.FK__Books__Id_Author__145C0A3F" FromRole="Books" ToRole="Authors" />
           <NavigationProperty Name="Genres" Relationship="Self.FK__Books__Id_Genre__15502E78" FromRole="Books" ToRole="Genres" />
+          <NavigationProperty Name="UserBooks" Relationship="Self.FK__UserBooks__Id_Bo__1B0907CE" FromRole="Books" ToRole="UserBooks" />
         </EntityType>
         <EntityType Name="Genres">
           <Key>
@@ -165,6 +195,16 @@ error 6004: The table 'Library.dbo.UserBooks' is referenced by a relationship, b
           <Property Name="GenreName" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Books" Relationship="Self.FK__Books__Id_Genre__15502E78" FromRole="Genres" ToRole="Books" />
         </EntityType>
+        <EntityType Name="UserBooks">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id_User" Type="Int32" />
+          <Property Name="Id_Book" Type="Int32" />
+          <NavigationProperty Name="Books" Relationship="Self.FK__UserBooks__Id_Bo__1B0907CE" FromRole="UserBooks" ToRole="Books" />
+          <NavigationProperty Name="Users" Relationship="Self.FK__UserBooks__Id_Us__1A14E395" FromRole="UserBooks" ToRole="Users" />
+        </EntityType>
         <EntityType Name="Users">
           <Key>
             <PropertyRef Name="Id" />
@@ -172,6 +212,7 @@ error 6004: The table 'Library.dbo.UserBooks' is referenced by a relationship, b
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Lgn" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="Pwd" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="UserBooks" Relationship="Self.FK__UserBooks__Id_Us__1A14E395" FromRole="Users" ToRole="UserBooks" />
         </EntityType>
         <Association Name="FK__Books__Id_Author__145C0A3F">
           <End Role="Authors" Type="Self.Authors" Multiplicity="0..1" />
@@ -197,11 +238,36 @@ error 6004: The table 'Library.dbo.UserBooks' is referenced by a relationship, b
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="LibraryEntities" annotation:LazyLoadingEnabled="true">
+        <Association Name="FK__UserBooks__Id_Bo__1B0907CE">
+          <End Role="Books" Type="Self.Books" Multiplicity="0..1" />
+          <End Role="UserBooks" Type="Self.UserBooks" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Books">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserBooks">
+              <PropertyRef Name="Id_Book" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__UserBooks__Id_Us__1A14E395">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="UserBooks" Type="Self.UserBooks" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserBooks">
+              <PropertyRef Name="Id_User" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ShopEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Admins" EntityType="Self.Admins" />
           <EntitySet Name="Authors" EntityType="Self.Authors" />
           <EntitySet Name="Books" EntityType="Self.Books" />
           <EntitySet Name="Genres" EntityType="Self.Genres" />
+          <EntitySet Name="UserBooks" EntityType="Self.UserBooks" />
           <EntitySet Name="Users" EntityType="Self.Users" />
           <AssociationSet Name="FK__Books__Id_Author__145C0A3F" Association="Self.FK__Books__Id_Author__145C0A3F">
             <End Role="Authors" EntitySet="Authors" />
@@ -211,15 +277,23 @@ error 6004: The table 'Library.dbo.UserBooks' is referenced by a relationship, b
             <End Role="Genres" EntitySet="Genres" />
             <End Role="Books" EntitySet="Books" />
           </AssociationSet>
+          <AssociationSet Name="FK__UserBooks__Id_Bo__1B0907CE" Association="Self.FK__UserBooks__Id_Bo__1B0907CE">
+            <End Role="Books" EntitySet="Books" />
+            <End Role="UserBooks" EntitySet="UserBooks" />
+          </AssociationSet>
+          <AssociationSet Name="FK__UserBooks__Id_Us__1A14E395" Association="Self.FK__UserBooks__Id_Us__1A14E395">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="UserBooks" EntitySet="UserBooks" />
+          </AssociationSet>
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="LibraryModelStoreContainer" CdmEntityContainer="LibraryEntities">
+        <EntityContainerMapping StorageEntityContainer="BookShopModelStoreContainer" CdmEntityContainer="ShopEntities">
           <EntitySetMapping Name="Admins">
-            <EntityTypeMapping TypeName="LibraryModel.Admins">
+            <EntityTypeMapping TypeName="BookShopModel.Admins">
               <MappingFragment StoreEntitySet="Admins">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Lgn" ColumnName="Lgn" />
@@ -228,7 +302,7 @@ error 6004: The table 'Library.dbo.UserBooks' is referenced by a relationship, b
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Authors">
-            <EntityTypeMapping TypeName="LibraryModel.Authors">
+            <EntityTypeMapping TypeName="BookShopModel.Authors">
               <MappingFragment StoreEntitySet="Authors">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="FirstName" ColumnName="FirstName" />
@@ -237,7 +311,7 @@ error 6004: The table 'Library.dbo.UserBooks' is referenced by a relationship, b
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Books">
-            <EntityTypeMapping TypeName="LibraryModel.Books">
+            <EntityTypeMapping TypeName="BookShopModel.Books">
               <MappingFragment StoreEntitySet="Books">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
@@ -256,15 +330,24 @@ error 6004: The table 'Library.dbo.UserBooks' is referenced by a relationship, b
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Genres">
-            <EntityTypeMapping TypeName="LibraryModel.Genres">
+            <EntityTypeMapping TypeName="BookShopModel.Genres">
               <MappingFragment StoreEntitySet="Genres">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="GenreName" ColumnName="GenreName" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="UserBooks">
+            <EntityTypeMapping TypeName="BookShopModel.UserBooks">
+              <MappingFragment StoreEntitySet="UserBooks">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Id_User" ColumnName="Id_User" />
+                <ScalarProperty Name="Id_Book" ColumnName="Id_Book" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Users">
-            <EntityTypeMapping TypeName="LibraryModel.Users">
+            <EntityTypeMapping TypeName="BookShopModel.Users">
               <MappingFragment StoreEntitySet="Users">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Lgn" ColumnName="Lgn" />

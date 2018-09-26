@@ -32,7 +32,7 @@ namespace ADO.NET_Exam
             materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
             materialSkinManager.ColorScheme = new ColorScheme(Primary.DeepOrange800, Primary.DeepOrange900, Primary.BlueGrey500, Accent.Red700, TextShade.WHITE);
 
-            using (LibraryEntities db = new LibraryEntities())
+            using (ShopEntities db = new ShopEntities())
             {
                 BooksSet = (from b in db.Books
                             where b.IsDeleted != true
@@ -49,6 +49,7 @@ namespace ADO.NET_Exam
             }
 
             user_img.Image = Image.FromFile("empty_user.png");
+            
 
            // Form3 form = new Form3();
            // form.ShowDialog();
@@ -58,15 +59,9 @@ namespace ADO.NET_Exam
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            //pictureBox1.Image = Image
-            //    .FromFile(@"C:\Users\Данил\Desktop\ADO.NET Exam\ADO.NET Exam\bin\Debug\starboy.png");
-            //pictureBox2.Image = Image
-            //    .FromFile(@"C:\Users\Данил\Desktop\ADO.NET Exam\ADO.NET Exam\bin\Debug\wakeup.jpg");
-            //pictureBox3.Image = Image
-            //    .FromFile(@"C:\Users\Данил\Desktop\ADO.NET Exam\ADO.NET Exam\bin\Debug\redpill.jpg");
-
             GeneratePagination(BooksSet);
             ShowPageOfBooks(BooksSet);
+            ShowSavedBooks();
         }
 
         private void GeneratePagination(List<Books> _books)
@@ -99,7 +94,7 @@ namespace ADO.NET_Exam
         {
             GeneratePagination(_books);
 
-            using (LibraryEntities db = new LibraryEntities())
+            using (ShopEntities db = new ShopEntities())
             {
                 int marginTop = 74;
                 int startHeight = 0;
@@ -114,7 +109,7 @@ namespace ADO.NET_Exam
                     if (Books[i].Title != null)
                     {
                         Panel elem = new Panel();
-                        elem.Size = new Size(1212, 59);
+                        elem.Size = new Size(1262, 59);
                         elem.BackColor = Color.FromArgb(240, 240, 240);
                         elem.Location = new Point(30, startHeight);
 
@@ -180,9 +175,17 @@ namespace ADO.NET_Exam
                         trackBut.Text = "buy";
                         trackBut.Size = new Size(107, 34);
                         trackBut.Location = new Point(1089, 12);
-                        trackBut.Click += TrackBut_Click;
+                        trackBut.Click += Buy_Click;
 
+                        MaterialRaisedButton saveBut = new MaterialRaisedButton();
+                        saveBut.Text = "★";
+                        saveBut.Size = new Size(34, 34);
+                        saveBut.Location = new Point(1200, 12);
+                        saveBut.Click += TrackBut_Click;
 
+                        //★
+
+                        
 
                         elem.Controls.Add(bookId);
                         elem.Controls.Add(pb);
@@ -192,6 +195,7 @@ namespace ADO.NET_Exam
                         elem.Controls.Add(bookPages);
                         elem.Controls.Add(bookPrice);
                         elem.Controls.Add(trackBut);
+                        elem.Controls.Add(saveBut);
 
                         mainPanel.Controls.Add(elem);
                     }
@@ -199,12 +203,63 @@ namespace ADO.NET_Exam
             }
         }
 
-        private void TrackBut_Click(object sender, EventArgs e) // buy but
+        private void ShowSavedBooks()
         {
-            using (LibraryEntities db = new LibraryEntities())
+            using (ShopEntities db = new ShopEntities())
+            {
+                var saved = db.UserBooks.Where(s => s.Users.Lgn == user_login_tb.Text).OrderByDescending(s => s.Id).Take(3).ToList();
+                int marginTop = 54;
+                int startHeight = 0;
+
+                saved_panel.Controls.Clear();
+
+                for (int i = 0; i < saved.Count(); i++)
+                {
+                    Panel elem = new Panel();
+                    elem.Size = new Size(241, 39);
+                    elem.BackColor = Color.FromArgb(240, 240, 240);
+                    elem.Location = new Point(0, startHeight);
+
+                    startHeight += marginTop;
+
+                    PictureBox pb = new PictureBox();
+                    pb.SizeMode = PictureBoxSizeMode.StretchImage;
+                    pb.Size = new Size(29, 37);
+                    pb.Location = new Point(0, 0);
+                    pb.Image = Image
+                        .FromFile(saved[i].Books.ImagePath);
+
+
+                    Label bookTitle = new Label();
+                    bookTitle.Text = saved[i].Books.Title;
+                    bookTitle.Size = new Size(227, 34);
+                    bookTitle.Location = new Point(50, 7);
+                    bookTitle.Font = new Font("Segoe UI", 12f, FontStyle.Regular);
+
+
+
+
+                    elem.Controls.Add(pb);
+                    elem.Controls.Add(bookTitle);
+                    saved_panel.Controls.Add(elem);
+                }
+            }
+        }
+
+        private void Buy_Click(object sender, EventArgs e) // buy but
+        {
+            using (ShopEntities db = new ShopEntities())
+            {
+                
+            }
+        }
+
+        private void TrackBut_Click(object sender, EventArgs e) // save but
+        {
+            using (ShopEntities db = new ShopEntities())
             {
                 int user_id = db.Users.Where(u => u.Lgn == CurrUserName).Select(u => u.Id).First();
-                int book_id;
+                int book_id = 1;
 
                 Button but = sender as Button;
 
@@ -212,7 +267,11 @@ namespace ADO.NET_Exam
                     if (item.Name == "id_book_lb")
                         book_id = int.Parse(item.Text);
 
-                
+                db.UserBooks.Add(new UserBooks { Id_User = user_id, Id_Book = book_id });
+                db.SaveChanges();
+                ShowSavedBooks();
+                MessageBox.Show("Книга добавлена в закладки", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
             }
         }
 
@@ -259,7 +318,7 @@ namespace ADO.NET_Exam
             CurrentPage = 0;
             if (Title_radio.Checked)
             {
-                using (LibraryEntities db = new LibraryEntities())
+                using (ShopEntities db = new ShopEntities())
                 {
                     var filtered = (from b in db.Books
                                     where b.Title.Contains(search_field.Text)
@@ -274,7 +333,7 @@ namespace ADO.NET_Exam
             }
             else if (Author_radio.Checked)
             {
-                using (LibraryEntities db = new LibraryEntities())
+                using (ShopEntities db = new ShopEntities())
                 {
                     var filtered = (from b in db.Books
                                     where (b.Authors.FirstName.Contains(search_field.Text) ||
@@ -293,7 +352,7 @@ namespace ADO.NET_Exam
             }
             else if (Genre_radio.Checked)
             {
-                using (LibraryEntities db = new LibraryEntities())
+                using (ShopEntities db = new ShopEntities())
                 {
                     var filtered = (from b in db.Books
                                     where b.Genres.GenreName.Contains(search_field.Text)
@@ -324,7 +383,8 @@ namespace ADO.NET_Exam
 
             form.ShowDialog();
             user_login_tb.Text = CurrUserName;
-            button1.Visible = false;
+            //button1.Visible = false;
+            ShowSavedBooks();
         }
     } 
 }

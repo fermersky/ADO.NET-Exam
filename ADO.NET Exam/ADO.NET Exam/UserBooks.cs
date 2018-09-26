@@ -12,18 +12,13 @@ namespace ADO.NET_Exam
     using System;
     using System.Collections.Generic;
     
-    public partial class Genres
+    public partial class UserBooks
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Genres()
-        {
-            this.Books = new HashSet<Books>();
-        }
-    
         public int Id { get; set; }
-        public string GenreName { get; set; }
+        public Nullable<int> Id_User { get; set; }
+        public Nullable<int> Id_Book { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Books> Books { get; set; }
+        public virtual Books Books { get; set; }
+        public virtual Users Users { get; set; }
     }
 }

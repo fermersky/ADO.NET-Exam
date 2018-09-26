@@ -13,10 +13,10 @@ namespace ADO.NET_Exam
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class LibraryEntities : DbContext
+    public partial class ShopEntities : DbContext
     {
-        public LibraryEntities()
-            : base("name=LibraryEntities")
+        public ShopEntities()
+            : base("name=ShopEntities")
         {
         }
     
@@ -29,8 +29,7 @@ namespace ADO.NET_Exam
         public virtual DbSet<Authors> Authors { get; set; }
         public virtual DbSet<Books> Books { get; set; }
         public virtual DbSet<Genres> Genres { get; set; }
+        public virtual DbSet<UserBooks> UserBooks { get; set; }
         public virtual DbSet<Users> Users { get; set; }
-
-        
     }
 }

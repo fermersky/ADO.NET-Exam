@@ -52,6 +52,8 @@
             this.user_login_tb = new MaterialSkin.Controls.MaterialLabel();
             this.user_img = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.materialLabel8 = new MaterialSkin.Controls.MaterialLabel();
+            this.saved_panel = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.user_img)).BeginInit();
             this.SuspendLayout();
@@ -253,7 +255,7 @@
             this.materialFlatButton3.AutoSize = true;
             this.materialFlatButton3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.materialFlatButton3.Depth = 0;
-            this.materialFlatButton3.Location = new System.Drawing.Point(1375, 822);
+            this.materialFlatButton3.Location = new System.Drawing.Point(1416, 822);
             this.materialFlatButton3.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.materialFlatButton3.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialFlatButton3.Name = "materialFlatButton3";
@@ -341,12 +343,34 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // materialLabel8
+            // 
+            this.materialLabel8.AutoSize = true;
+            this.materialLabel8.Depth = 0;
+            this.materialLabel8.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel8.Location = new System.Drawing.Point(1347, 548);
+            this.materialLabel8.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel8.Name = "materialLabel8";
+            this.materialLabel8.Size = new System.Drawing.Size(233, 19);
+            this.materialLabel8.TabIndex = 45;
+            this.materialLabel8.Text = "Последние сохраненные книги";
+            // 
+            // saved_panel
+            // 
+            this.saved_panel.Location = new System.Drawing.Point(1351, 597);
+            this.saved_panel.Name = "saved_panel";
+            this.saved_panel.Size = new System.Drawing.Size(241, 190);
+            this.saved_panel.TabIndex = 46;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             this.ClientSize = new System.Drawing.Size(1620, 873);
+            this.Controls.Add(this.saved_panel);
+            this.Controls.Add(this.materialLabel8);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.user_img);
             this.Controls.Add(this.user_login_tb);
@@ -370,7 +394,7 @@
             this.Controls.Add(this.materialFlatButton2);
             this.Controls.Add(this.materialFlatButton1);
             this.Name = "Form1";
-            this.Text = "Google Play Music";
+            this.Text = "Book Shop";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.user_img)).EndInit();
@@ -403,6 +427,8 @@
         private MaterialSkin.Controls.MaterialLabel user_login_tb;
         private System.Windows.Forms.PictureBox user_img;
         private System.Windows.Forms.Button button1;
+        private MaterialSkin.Controls.MaterialLabel materialLabel8;
+        private System.Windows.Forms.Panel saved_panel;
     }
 }
 

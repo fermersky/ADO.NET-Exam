@@ -131,7 +131,7 @@ namespace ADO.NET_Exam
 
         private void materialRaisedButton1_Click(object sender, EventArgs e)
         {
-            using (LibraryEntities db = new LibraryEntities())
+            using (ShopEntities db = new ShopEntities())
             {
                 if (this.Text == "Login admin")
                 {

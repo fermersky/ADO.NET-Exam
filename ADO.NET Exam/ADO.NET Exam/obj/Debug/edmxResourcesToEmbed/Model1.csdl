@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="LibraryModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+<Schema Namespace="BookShopModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
   <EntityType Name="Admins">
     <Key>
       <PropertyRef Name="Id" />
@@ -36,6 +36,7 @@
     <Property Name="ImagePath" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="Authors" Relationship="Self.FK__Books__Id_Author__145C0A3F" FromRole="Books" ToRole="Authors" />
     <NavigationProperty Name="Genres" Relationship="Self.FK__Books__Id_Genre__15502E78" FromRole="Books" ToRole="Genres" />
+    <NavigationProperty Name="UserBooks" Relationship="Self.FK__UserBooks__Id_Bo__1B0907CE" FromRole="Books" ToRole="UserBooks" />
   </EntityType>
   <EntityType Name="Genres">
     <Key>
@@ -45,6 +46,16 @@
     <Property Name="GenreName" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="Books" Relationship="Self.FK__Books__Id_Genre__15502E78" FromRole="Genres" ToRole="Books" />
   </EntityType>
+  <EntityType Name="UserBooks">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Id_User" Type="Int32" />
+    <Property Name="Id_Book" Type="Int32" />
+    <NavigationProperty Name="Books" Relationship="Self.FK__UserBooks__Id_Bo__1B0907CE" FromRole="UserBooks" ToRole="Books" />
+    <NavigationProperty Name="Users" Relationship="Self.FK__UserBooks__Id_Us__1A14E395" FromRole="UserBooks" ToRole="Users" />
+  </EntityType>
   <EntityType Name="Users">
     <Key>
       <PropertyRef Name="Id" />
@@ -52,6 +63,7 @@
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Lgn" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
     <Property Name="Pwd" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="UserBooks" Relationship="Self.FK__UserBooks__Id_Us__1A14E395" FromRole="Users" ToRole="UserBooks" />
   </EntityType>
   <Association Name="FK__Books__Id_Author__145C0A3F">
     <End Role="Authors" Type="Self.Authors" Multiplicity="0..1" />
@@ -77,11 +89,36 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="LibraryEntities" annotation:LazyLoadingEnabled="true">
+  <Association Name="FK__UserBooks__Id_Bo__1B0907CE">
+    <End Role="Books" Type="Self.Books" Multiplicity="0..1" />
+    <End Role="UserBooks" Type="Self.UserBooks" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Books">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserBooks">
+        <PropertyRef Name="Id_Book" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__UserBooks__Id_Us__1A14E395">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="UserBooks" Type="Self.UserBooks" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserBooks">
+        <PropertyRef Name="Id_User" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ShopEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Admins" EntityType="Self.Admins" />
     <EntitySet Name="Authors" EntityType="Self.Authors" />
     <EntitySet Name="Books" EntityType="Self.Books" />
     <EntitySet Name="Genres" EntityType="Self.Genres" />
+    <EntitySet Name="UserBooks" EntityType="Self.UserBooks" />
     <EntitySet Name="Users" EntityType="Self.Users" />
     <AssociationSet Name="FK__Books__Id_Author__145C0A3F" Association="Self.FK__Books__Id_Author__145C0A3F">
       <End Role="Authors" EntitySet="Authors" />
@@ -90,6 +127,14 @@
     <AssociationSet Name="FK__Books__Id_Genre__15502E78" Association="Self.FK__Books__Id_Genre__15502E78">
       <End Role="Genres" EntitySet="Genres" />
       <End Role="Books" EntitySet="Books" />
+    </AssociationSet>
+    <AssociationSet Name="FK__UserBooks__Id_Bo__1B0907CE" Association="Self.FK__UserBooks__Id_Bo__1B0907CE">
+      <End Role="Books" EntitySet="Books" />
+      <End Role="UserBooks" EntitySet="UserBooks" />
+    </AssociationSet>
+    <AssociationSet Name="FK__UserBooks__Id_Us__1A14E395" Association="Self.FK__UserBooks__Id_Us__1A14E395">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="UserBooks" EntitySet="UserBooks" />
     </AssociationSet>
   </EntityContainer>
 </Schema>

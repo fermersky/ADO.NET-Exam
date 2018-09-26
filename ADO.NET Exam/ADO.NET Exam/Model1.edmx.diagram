@@ -4,14 +4,17 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="2c594093e86b41eea84c0823a62a7b3f" Name="Diagram1">
-        <EntityTypeShape EntityType="LibraryModel.Admins" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="LibraryModel.Authors" Width="1.5" PointX="0.75" PointY="2.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="LibraryModel.Books" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="LibraryModel.Genres" Width="1.5" PointX="0.75" PointY="6.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="LibraryModel.Users" Width="1.5" PointX="2.75" PointY="5.75" IsExpanded="true" />
-        <AssociationConnector Association="LibraryModel.FK__Books__Id_Author__145C0A3F" ManuallyRouted="false" />
-        <AssociationConnector Association="LibraryModel.FK__Books__Id_Genre__15502E78" ManuallyRouted="false" />
+      <Diagram DiagramId="20438574a6fe4bfaa561d41e5479326e" Name="Diagram1">
+        <EntityTypeShape EntityType="BookShopModel.Admins" Width="1.5" PointX="5.75" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="BookShopModel.Authors" Width="1.5" PointX="0.75" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BookShopModel.Books" Width="1.5" PointX="3" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BookShopModel.Genres" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BookShopModel.UserBooks" Width="1.5" PointX="5.25" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BookShopModel.Users" Width="1.5" PointX="3" PointY="8.625" IsExpanded="true" />
+        <AssociationConnector Association="BookShopModel.FK__Books__Id_Author__145C0A3F" ManuallyRouted="false" />
+        <AssociationConnector Association="BookShopModel.FK__Books__Id_Genre__15502E78" ManuallyRouted="false" />
+        <AssociationConnector Association="BookShopModel.FK__UserBooks__Id_Bo__1B0907CE" ManuallyRouted="false" />
+        <AssociationConnector Association="BookShopModel.FK__UserBooks__Id_Us__1A14E395" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
