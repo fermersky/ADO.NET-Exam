@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.mainPanel = new System.Windows.Forms.Panel();
+            this.materialRaisedButton3 = new MaterialSkin.Controls.MaterialRaisedButton();
             this.materialLabel3 = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
             this.label4 = new System.Windows.Forms.Label();
@@ -36,8 +37,13 @@
             this.materialFlatButton2 = new MaterialSkin.Controls.MaterialFlatButton();
             this.materialFlatButton1 = new MaterialSkin.Controls.MaterialFlatButton();
             this.rightPanel = new System.Windows.Forms.Panel();
+            this.addBut = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.sequel_Tb = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.materialLabel10 = new MaterialSkin.Controls.MaterialLabel();
+            this.pages_tb = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.materialRaisedButton2 = new MaterialSkin.Controls.MaterialRaisedButton();
             this.materialLabel7 = new MaterialSkin.Controls.MaterialLabel();
+            this.materialLabel9 = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel5 = new MaterialSkin.Controls.MaterialLabel();
             this.authors_tb = new MetroFramework.Controls.MetroComboBox();
             this.materialLabel6 = new MaterialSkin.Controls.MaterialLabel();
@@ -50,12 +56,6 @@
             this.bookAlbum = new System.Windows.Forms.PictureBox();
             this.title_tb = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.materialLabel8 = new MaterialSkin.Controls.MaterialLabel();
-            this.materialRaisedButton3 = new MaterialSkin.Controls.MaterialRaisedButton();
-            this.materialLabel9 = new MaterialSkin.Controls.MaterialLabel();
-            this.pages_tb = new MaterialSkin.Controls.MaterialSingleLineTextField();
-            this.sequel_Tb = new MaterialSkin.Controls.MaterialSingleLineTextField();
-            this.materialLabel10 = new MaterialSkin.Controls.MaterialLabel();
-            this.addBut = new MaterialSkin.Controls.MaterialRaisedButton();
             this.rightPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bookAlbum)).BeginInit();
             this.SuspendLayout();
@@ -64,8 +64,21 @@
             // 
             this.mainPanel.Location = new System.Drawing.Point(21, 200);
             this.mainPanel.Name = "mainPanel";
-            this.mainPanel.Size = new System.Drawing.Size(709, 521);
+            this.mainPanel.Size = new System.Drawing.Size(1081, 521);
             this.mainPanel.TabIndex = 45;
+            // 
+            // materialRaisedButton3
+            // 
+            this.materialRaisedButton3.Depth = 0;
+            this.materialRaisedButton3.Location = new System.Drawing.Point(60, 727);
+            this.materialRaisedButton3.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialRaisedButton3.Name = "materialRaisedButton3";
+            this.materialRaisedButton3.Primary = true;
+            this.materialRaisedButton3.Size = new System.Drawing.Size(154, 42);
+            this.materialRaisedButton3.TabIndex = 51;
+            this.materialRaisedButton3.Text = "add new book";
+            this.materialRaisedButton3.UseVisualStyleBackColor = true;
+            this.materialRaisedButton3.Click += new System.EventHandler(this.materialRaisedButton3_Click);
             // 
             // materialLabel3
             // 
@@ -103,7 +116,7 @@
             // 
             // paginationPanel
             // 
-            this.paginationPanel.Location = new System.Drawing.Point(517, 791);
+            this.paginationPanel.Location = new System.Drawing.Point(456, 733);
             this.paginationPanel.Name = "paginationPanel";
             this.paginationPanel.Size = new System.Drawing.Size(266, 39);
             this.paginationPanel.TabIndex = 48;
@@ -113,7 +126,7 @@
             this.materialFlatButton2.AutoSize = true;
             this.materialFlatButton2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.materialFlatButton2.Depth = 0;
-            this.materialFlatButton2.Location = new System.Drawing.Point(881, 795);
+            this.materialFlatButton2.Location = new System.Drawing.Point(763, 733);
             this.materialFlatButton2.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.materialFlatButton2.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialFlatButton2.Name = "materialFlatButton2";
@@ -129,7 +142,7 @@
             this.materialFlatButton1.AutoSize = true;
             this.materialFlatButton1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.materialFlatButton1.Depth = 0;
-            this.materialFlatButton1.Location = new System.Drawing.Point(401, 795);
+            this.materialFlatButton1.Location = new System.Drawing.Point(283, 733);
             this.materialFlatButton1.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.materialFlatButton1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialFlatButton1.Name = "materialFlatButton1";
@@ -167,6 +180,62 @@
             this.rightPanel.TabIndex = 49;
             this.rightPanel.Visible = false;
             // 
+            // addBut
+            // 
+            this.addBut.Depth = 0;
+            this.addBut.Location = new System.Drawing.Point(233, 731);
+            this.addBut.MouseState = MaterialSkin.MouseState.HOVER;
+            this.addBut.Name = "addBut";
+            this.addBut.Primary = true;
+            this.addBut.Size = new System.Drawing.Size(154, 42);
+            this.addBut.TabIndex = 58;
+            this.addBut.Text = "add book";
+            this.addBut.UseVisualStyleBackColor = true;
+            this.addBut.Click += new System.EventHandler(this.materialRaisedButton4_Click);
+            // 
+            // sequel_Tb
+            // 
+            this.sequel_Tb.Depth = 0;
+            this.sequel_Tb.Hint = "";
+            this.sequel_Tb.Location = new System.Drawing.Point(135, 634);
+            this.sequel_Tb.MouseState = MaterialSkin.MouseState.HOVER;
+            this.sequel_Tb.Name = "sequel_Tb";
+            this.sequel_Tb.PasswordChar = '\0';
+            this.sequel_Tb.SelectedText = "";
+            this.sequel_Tb.SelectionLength = 0;
+            this.sequel_Tb.SelectionStart = 0;
+            this.sequel_Tb.Size = new System.Drawing.Size(252, 23);
+            this.sequel_Tb.TabIndex = 57;
+            this.sequel_Tb.UseSystemPasswordChar = false;
+            // 
+            // materialLabel10
+            // 
+            this.materialLabel10.AutoSize = true;
+            this.materialLabel10.Depth = 0;
+            this.materialLabel10.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel10.Location = new System.Drawing.Point(32, 634);
+            this.materialLabel10.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel10.Name = "materialLabel10";
+            this.materialLabel10.Size = new System.Drawing.Size(55, 19);
+            this.materialLabel10.TabIndex = 56;
+            this.materialLabel10.Text = "Sequel";
+            // 
+            // pages_tb
+            // 
+            this.pages_tb.Depth = 0;
+            this.pages_tb.Hint = "";
+            this.pages_tb.Location = new System.Drawing.Point(135, 573);
+            this.pages_tb.MouseState = MaterialSkin.MouseState.HOVER;
+            this.pages_tb.Name = "pages_tb";
+            this.pages_tb.PasswordChar = '\0';
+            this.pages_tb.SelectedText = "";
+            this.pages_tb.SelectionLength = 0;
+            this.pages_tb.SelectionStart = 0;
+            this.pages_tb.Size = new System.Drawing.Size(252, 23);
+            this.pages_tb.TabIndex = 55;
+            this.pages_tb.UseSystemPasswordChar = false;
+            // 
             // materialRaisedButton2
             // 
             this.materialRaisedButton2.Depth = 0;
@@ -192,6 +261,19 @@
             this.materialLabel7.Size = new System.Drawing.Size(62, 19);
             this.materialLabel7.TabIndex = 53;
             this.materialLabel7.Text = "Authors";
+            // 
+            // materialLabel9
+            // 
+            this.materialLabel9.AutoSize = true;
+            this.materialLabel9.Depth = 0;
+            this.materialLabel9.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel9.Location = new System.Drawing.Point(32, 573);
+            this.materialLabel9.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel9.Name = "materialLabel9";
+            this.materialLabel9.Size = new System.Drawing.Size(50, 19);
+            this.materialLabel9.TabIndex = 52;
+            this.materialLabel9.Text = "Pages";
             // 
             // materialLabel5
             // 
@@ -339,94 +421,12 @@
             this.materialLabel8.Depth = 0;
             this.materialLabel8.Font = new System.Drawing.Font("Roboto", 11F);
             this.materialLabel8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel8.Location = new System.Drawing.Point(592, 157);
+            this.materialLabel8.Location = new System.Drawing.Point(926, 157);
             this.materialLabel8.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel8.Name = "materialLabel8";
             this.materialLabel8.Size = new System.Drawing.Size(100, 19);
             this.materialLabel8.TabIndex = 50;
             this.materialLabel8.Text = "Ред\\Удалить";
-            // 
-            // materialRaisedButton3
-            // 
-            this.materialRaisedButton3.Depth = 0;
-            this.materialRaisedButton3.Location = new System.Drawing.Point(64, 746);
-            this.materialRaisedButton3.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialRaisedButton3.Name = "materialRaisedButton3";
-            this.materialRaisedButton3.Primary = true;
-            this.materialRaisedButton3.Size = new System.Drawing.Size(154, 42);
-            this.materialRaisedButton3.TabIndex = 51;
-            this.materialRaisedButton3.Text = "add new book";
-            this.materialRaisedButton3.UseVisualStyleBackColor = true;
-            this.materialRaisedButton3.Click += new System.EventHandler(this.materialRaisedButton3_Click);
-            // 
-            // materialLabel9
-            // 
-            this.materialLabel9.AutoSize = true;
-            this.materialLabel9.Depth = 0;
-            this.materialLabel9.Font = new System.Drawing.Font("Roboto", 11F);
-            this.materialLabel9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel9.Location = new System.Drawing.Point(32, 573);
-            this.materialLabel9.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel9.Name = "materialLabel9";
-            this.materialLabel9.Size = new System.Drawing.Size(50, 19);
-            this.materialLabel9.TabIndex = 52;
-            this.materialLabel9.Text = "Pages";
-            // 
-            // pages_tb
-            // 
-            this.pages_tb.Depth = 0;
-            this.pages_tb.Hint = "";
-            this.pages_tb.Location = new System.Drawing.Point(135, 573);
-            this.pages_tb.MouseState = MaterialSkin.MouseState.HOVER;
-            this.pages_tb.Name = "pages_tb";
-            this.pages_tb.PasswordChar = '\0';
-            this.pages_tb.SelectedText = "";
-            this.pages_tb.SelectionLength = 0;
-            this.pages_tb.SelectionStart = 0;
-            this.pages_tb.Size = new System.Drawing.Size(252, 23);
-            this.pages_tb.TabIndex = 55;
-            this.pages_tb.UseSystemPasswordChar = false;
-            // 
-            // sequel_Tb
-            // 
-            this.sequel_Tb.Depth = 0;
-            this.sequel_Tb.Hint = "";
-            this.sequel_Tb.Location = new System.Drawing.Point(135, 634);
-            this.sequel_Tb.MouseState = MaterialSkin.MouseState.HOVER;
-            this.sequel_Tb.Name = "sequel_Tb";
-            this.sequel_Tb.PasswordChar = '\0';
-            this.sequel_Tb.SelectedText = "";
-            this.sequel_Tb.SelectionLength = 0;
-            this.sequel_Tb.SelectionStart = 0;
-            this.sequel_Tb.Size = new System.Drawing.Size(252, 23);
-            this.sequel_Tb.TabIndex = 57;
-            this.sequel_Tb.UseSystemPasswordChar = false;
-            // 
-            // materialLabel10
-            // 
-            this.materialLabel10.AutoSize = true;
-            this.materialLabel10.Depth = 0;
-            this.materialLabel10.Font = new System.Drawing.Font("Roboto", 11F);
-            this.materialLabel10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel10.Location = new System.Drawing.Point(32, 634);
-            this.materialLabel10.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel10.Name = "materialLabel10";
-            this.materialLabel10.Size = new System.Drawing.Size(55, 19);
-            this.materialLabel10.TabIndex = 56;
-            this.materialLabel10.Text = "Sequel";
-            // 
-            // addBut
-            // 
-            this.addBut.Depth = 0;
-            this.addBut.Location = new System.Drawing.Point(233, 731);
-            this.addBut.MouseState = MaterialSkin.MouseState.HOVER;
-            this.addBut.Name = "addBut";
-            this.addBut.Primary = true;
-            this.addBut.Size = new System.Drawing.Size(154, 42);
-            this.addBut.TabIndex = 58;
-            this.addBut.Text = "add book";
-            this.addBut.UseVisualStyleBackColor = true;
-            this.addBut.Click += new System.EventHandler(this.materialRaisedButton4_Click);
             // 
             // Form3
             // 

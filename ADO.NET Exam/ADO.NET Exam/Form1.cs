@@ -33,6 +33,9 @@ namespace ADO.NET_Exam
             materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
             materialSkinManager.ColorScheme = new ColorScheme(Primary.DeepOrange800, Primary.DeepOrange900, Primary.BlueGrey500, Accent.Red700, TextShade.WHITE);
 
+            count_within.BringToFront();
+            pictureBox7.SendToBack();
+
             using (ShopEntities db = new ShopEntities())
             {
                 BooksSet = (from b in db.Books
@@ -167,7 +170,7 @@ namespace ADO.NET_Exam
                         // Price
 
                         Label bookPrice = new Label();
-                        bookPrice.Text = Books[i].PriceForSale + "$";
+                        bookPrice.Text = Books[i].Price + "$";
                         bookPrice.Size = new Size(52, 20);
                         bookPrice.Location = new Point(960, 18);
                         bookPrice.Font = new Font("Segoe UI", 12f, FontStyle.Regular);
@@ -405,7 +408,13 @@ namespace ADO.NET_Exam
         {
             Form5 form = new Form5();
             form.Owner = this;
+            form.count_within.Text = count_within.Text;
             form.ShowDialog();
+        }
+
+        private void count_within_Click(object sender, EventArgs e)
+        {
+
         }
     } 
 }

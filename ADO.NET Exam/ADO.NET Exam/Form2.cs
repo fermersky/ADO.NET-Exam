@@ -168,7 +168,6 @@ namespace ADO.NET_Exam
                     }
                     catch (Exception)
                     {
-                        MessageBox.Show("Loh");
                         label1.Visible = true;
                         label2.Visible = true;
                     }

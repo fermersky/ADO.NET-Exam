@@ -1,4 +1,4 @@
---DESKTOP-27H75VF
+
 
 create database BookShop
 

@@ -51,5 +51,5 @@ C:\Users\Данил\Desktop\ADO.NET-Exam\ADO.NET Exam\ADO.NET Exam\bin\Debug\Mat
 C:\Users\Данил\Desktop\ADO.NET-Exam\ADO.NET Exam\ADO.NET Exam\bin\Debug\MetroFramework.Design.dll
 C:\Users\Данил\Desktop\ADO.NET-Exam\ADO.NET Exam\ADO.NET Exam\bin\Debug\MetroFramework.dll
 C:\Users\Данил\Desktop\ADO.NET-Exam\ADO.NET Exam\ADO.NET Exam\bin\Debug\MetroFramework.Fonts.dll
-C:\Users\Данил\Desktop\ADO.NET-Exam\ADO.NET Exam\ADO.NET Exam\obj\Debug\ADO.NET_Exam.Form4.resources
 C:\Users\PKO\Desktop\work\ADO.NET-Exam\ADO.NET Exam\ADO.NET Exam\obj\Debug\ADO.NET_Exam.Form5.resources
+C:\Users\Данил\Desktop\ADO.NET-Exam\ADO.NET Exam\ADO.NET Exam\obj\Debug\ADO.NET_Exam.Form5.resources

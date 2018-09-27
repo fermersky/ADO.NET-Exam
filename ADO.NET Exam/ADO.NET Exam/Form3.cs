@@ -105,7 +105,7 @@ namespace ADO.NET_Exam
                     if (Books[i].Title != null)
                     {
                         Panel elem = new Panel();
-                        elem.Size = new Size(732, 59);
+                        elem.Size = new Size(1002, 59);
                         elem.BackColor = Color.FromArgb(240, 240, 240);
                         elem.Location = new Point(30, startHeight);
 
@@ -147,13 +147,13 @@ namespace ADO.NET_Exam
                         MaterialRaisedButton editBut = new MaterialRaisedButton();
                         editBut.Text = "✎";
                         editBut.Size = new Size(38, 38);
-                        editBut.Location = new Point(550, 12);
+                        editBut.Location = new Point(880, 12);
                         editBut.MouseClick += EditBut_MouseClick;
 
                         MaterialRaisedButton delBut = new MaterialRaisedButton();
                         delBut.Text = "x";
                         delBut.Size = new Size(38, 38);
-                        delBut.Location = new Point(600, 12);
+                        delBut.Location = new Point(930, 12);
                         delBut.Click += DelBut_Click;
 
 

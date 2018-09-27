@@ -55,8 +55,10 @@
             this.materialLabel8 = new MaterialSkin.Controls.MaterialLabel();
             this.saved_panel = new System.Windows.Forms.Panel();
             this.materialRaisedButton1 = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.user_img)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // materialFlatButton1
@@ -232,7 +234,7 @@
             // count_within
             // 
             this.count_within.Depth = 0;
-            this.count_within.Location = new System.Drawing.Point(1523, 309);
+            this.count_within.Location = new System.Drawing.Point(1509, 306);
             this.count_within.MouseState = MaterialSkin.MouseState.HOVER;
             this.count_within.Name = "count_within";
             this.count_within.Primary = true;
@@ -240,10 +242,10 @@
             this.count_within.TabIndex = 33;
             this.count_within.Text = "0";
             this.count_within.UseVisualStyleBackColor = true;
+            this.count_within.Click += new System.EventHandler(this.count_within_Click);
             // 
             // pictureBox7
             // 
-            this.pictureBox7.Image = global::ADO.NET_Exam.Properties.Resources.bin;
             this.pictureBox7.Location = new System.Drawing.Point(1327, 266);
             this.pictureBox7.Name = "pictureBox7";
             this.pictureBox7.Size = new System.Drawing.Size(281, 235);
@@ -371,11 +373,21 @@
             this.materialRaisedButton1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialRaisedButton1.Name = "materialRaisedButton1";
             this.materialRaisedButton1.Primary = true;
-            this.materialRaisedButton1.Size = new System.Drawing.Size(172, 36);
+            this.materialRaisedButton1.Size = new System.Drawing.Size(181, 36);
             this.materialRaisedButton1.TabIndex = 47;
             this.materialRaisedButton1.Text = "Глянуть корзину";
             this.materialRaisedButton1.UseVisualStyleBackColor = true;
             this.materialRaisedButton1.Click += new System.EventHandler(this.materialRaisedButton1_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::ADO.NET_Exam.Properties.Resources.bin;
+            this.pictureBox1.Location = new System.Drawing.Point(1379, 294);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(181, 151);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 48;
+            this.pictureBox1.TabStop = false;
             // 
             // Form1
             // 
@@ -383,6 +395,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             this.ClientSize = new System.Drawing.Size(1620, 873);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.materialRaisedButton1);
             this.Controls.Add(this.saved_panel);
             this.Controls.Add(this.materialLabel8);
@@ -413,6 +426,7 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.user_img)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -433,7 +447,6 @@
         private MaterialSkin.Controls.MaterialRadioButton Title_radio;
         private MaterialSkin.Controls.MaterialRadioButton Author_radio;
         private System.Windows.Forms.PictureBox pictureBox7;
-        private MaterialSkin.Controls.MaterialRaisedButton count_within;
         private MaterialSkin.Controls.MaterialFlatButton materialFlatButton3;
         private System.Windows.Forms.Panel mainPanel;
         private System.Windows.Forms.Panel paginationPanel;
@@ -445,6 +458,8 @@
         private MaterialSkin.Controls.MaterialLabel materialLabel8;
         private System.Windows.Forms.Panel saved_panel;
         private MaterialSkin.Controls.MaterialRaisedButton materialRaisedButton1;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        public MaterialSkin.Controls.MaterialRaisedButton count_within;
     }
 }
 

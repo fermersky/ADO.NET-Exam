@@ -14,6 +14,7 @@ namespace ADO.NET_Exam
 {
     public partial class Form5 : MaterialForm
     {
+        public int CountInBin { get; set; } = 0;
         public Form5()
         {
             InitializeComponent();
@@ -27,6 +28,16 @@ namespace ADO.NET_Exam
 
         private void Form5_Load(object sender, EventArgs e)
         {
+            Form1 form = this.Owner as Form1;
+            var Books = form.Bin.Books.Select(b => new { Price = b.Price });
+
+            double sum = 0;
+
+            foreach (var item in Books)
+                sum += double.Parse(item.Price);
+
+            sum_lb.Text = sum + "$";
+
             ShowPageOfBooks();
         }
 
@@ -103,9 +114,9 @@ namespace ADO.NET_Exam
                         // Price
 
                         Label bookPrice = new Label();
-                        bookPrice.Text = Books[i].PriceForSale + "$";
+                        bookPrice.Text = Books[i].Price + "$";
                         bookPrice.Size = new Size(52, 20);
-                        bookPrice.Location = new Point(960, 18);
+                        bookPrice.Location = new Point(1060, 18);
                         bookPrice.Font = new Font("Segoe UI", 12f, FontStyle.Regular);
 
 
@@ -127,6 +138,18 @@ namespace ADO.NET_Exam
                     }
                 }
             }
+        }
+
+        private void materialRaisedButton2_Click(object sender, EventArgs e)
+        {
+            Form1 form = this.Owner as Form1;
+            form.count_within.Text = "0";
+            form.Bin.Books.Clear();
+
+            CountInBin = 0;
+            ShowPageOfBooks();
+            count_within.Text = "0";
+            sum_lb.Text = "0$";
         }
     }
 }
