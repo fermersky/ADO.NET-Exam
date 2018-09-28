@@ -22,7 +22,7 @@ namespace ADO.NET_Exam
             var materialSkinManager = MaterialSkinManager.Instance;
             materialSkinManager.AddFormToManage(this);
             materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
-            materialSkinManager.ColorScheme = new ColorScheme(Primary.DeepOrange800, Primary.DeepOrange900, Primary.BlueGrey500, Accent.Red700, TextShade.WHITE);
+            //materialSkinManager.ColorScheme = new ColorScheme(Primary.DeepOrange800, Primary.DeepOrange900, Primary.BlueGrey500, Accent.Red700, TextShade.WHITE);
 
         }
 
@@ -37,7 +37,6 @@ namespace ADO.NET_Exam
                 sum += double.Parse(item.Price);
 
             sum_lb.Text = sum + "$";
-
             ShowPageOfBooks();
         }
 

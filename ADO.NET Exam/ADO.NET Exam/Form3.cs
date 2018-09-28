@@ -30,7 +30,7 @@ namespace ADO.NET_Exam
             var materialSkinManager = MaterialSkinManager.Instance;
             materialSkinManager.AddFormToManage(this);
             materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
-            materialSkinManager.ColorScheme = new ColorScheme(Primary.DeepOrange800, Primary.DeepOrange900, Primary.BlueGrey500, Accent.Red700, TextShade.WHITE);
+           // materialSkinManager.ColorScheme = new ColorScheme(Primary.DeepOrange800, Primary.DeepOrange900, Primary.BlueGrey500, Accent.Red700, TextShade.WHITE);
 
 
             using (ShopEntities db = new ShopEntities())
@@ -44,8 +44,6 @@ namespace ADO.NET_Exam
                 double d = Convert.ToDouble(BooksSet.Count) / 6.0;
                 MaxPages = Math.Ceiling(d);
             }
-
-            //rightPanel.Location = new Point(this.Width, 64);
         }
 
         private void Form3_Load(object sender, EventArgs e)
@@ -194,8 +192,6 @@ namespace ADO.NET_Exam
 
                 ShowPageOfBooks(db.Books.ToList());
             }
-
-            
         }
 
         private void EditBut_MouseClick(object sender, MouseEventArgs e) // edit but
@@ -252,11 +248,8 @@ namespace ADO.NET_Exam
             if (CurrentPage < MaxPages - 1)
             {
                 CurrentPage += 1;
-
                 using (ShopEntities db = new ShopEntities())
-                {
                     ShowPageOfBooks(db.Books.ToList());
-                }
             }
         }
 
@@ -266,9 +259,7 @@ namespace ADO.NET_Exam
             {
                 CurrentPage -= 1;
                 using (ShopEntities db = new ShopEntities())
-                {
                     ShowPageOfBooks(db.Books.ToList());
-                }
             }
         }
 
@@ -283,8 +274,6 @@ namespace ADO.NET_Exam
 
                 var genreId = db.Genres.Where(g => g.GenreName == genres_cb.Text).First();
                 var authorId = db.Authors.Where(g => g.FirstName + " " + g.LastName == authors_tb.Text).First();
-
-
 
                 var willEdit = db.Books.Where(c => c.Id == CurrId).First();
 

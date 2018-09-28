@@ -56,6 +56,8 @@
             this.saved_panel = new System.Windows.Forms.Panel();
             this.materialRaisedButton1 = new MaterialSkin.Controls.MaterialRaisedButton();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.sort_price_but = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.user_img)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -242,7 +244,6 @@
             this.count_within.TabIndex = 33;
             this.count_within.Text = "0";
             this.count_within.UseVisualStyleBackColor = true;
-            this.count_within.Click += new System.EventHandler(this.count_within_Click);
             // 
             // pictureBox7
             // 
@@ -389,12 +390,35 @@
             this.pictureBox1.TabIndex = 48;
             this.pictureBox1.TabStop = false;
             // 
+            // sort_price_but
+            // 
+            this.sort_price_but.Depth = 0;
+            this.sort_price_but.Location = new System.Drawing.Point(1061, 221);
+            this.sort_price_but.MouseState = MaterialSkin.MouseState.HOVER;
+            this.sort_price_but.Name = "sort_price_but";
+            this.sort_price_but.Primary = true;
+            this.sort_price_but.Size = new System.Drawing.Size(26, 25);
+            this.sort_price_but.TabIndex = 49;
+            this.sort_price_but.Text = "▲";
+            this.sort_price_but.UseVisualStyleBackColor = true;
+            this.sort_price_but.Click += new System.EventHandler(this.materialRaisedButton2_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(39)))), ((int)(((byte)(160)))));
+            this.panel1.Location = new System.Drawing.Point(0, 64);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(12, 2000);
+            this.panel1.TabIndex = 50;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             this.ClientSize = new System.Drawing.Size(1620, 873);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.sort_price_but);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.materialRaisedButton1);
             this.Controls.Add(this.saved_panel);
@@ -460,6 +484,8 @@
         private MaterialSkin.Controls.MaterialRaisedButton materialRaisedButton1;
         private System.Windows.Forms.PictureBox pictureBox1;
         public MaterialSkin.Controls.MaterialRaisedButton count_within;
+        private MaterialSkin.Controls.MaterialRaisedButton sort_price_but;
+        private System.Windows.Forms.Panel panel1;
     }
 }
 

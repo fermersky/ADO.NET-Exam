@@ -15,6 +15,8 @@ namespace ADO.NET_Exam
 {
     public partial class Form1 : MaterialForm
     {
+        enum Currsort { Asc, Desc};
+        Currsort currSort { get; set; } = Currsort.Asc;
 
         private int CurrentPage { get; set; } = 0;
         private List<Books> BooksSet;
@@ -24,6 +26,7 @@ namespace ADO.NET_Exam
         public Bin Bin { get; set; } = new Bin();
 
 
+
         public Form1()
         {
             InitializeComponent();
@@ -31,7 +34,7 @@ namespace ADO.NET_Exam
             var materialSkinManager = MaterialSkinManager.Instance;
             materialSkinManager.AddFormToManage(this);
             materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
-            materialSkinManager.ColorScheme = new ColorScheme(Primary.DeepOrange800, Primary.DeepOrange900, Primary.BlueGrey500, Accent.Red700, TextShade.WHITE);
+            materialSkinManager.ColorScheme = new ColorScheme(Primary.DeepPurple800, Primary.DeepPurple900, Primary.BlueGrey500, Accent.Red700, TextShade.WHITE);
 
             count_within.BringToFront();
             pictureBox7.SendToBack();
@@ -53,10 +56,6 @@ namespace ADO.NET_Exam
             }
 
             user_img.Image = Image.FromFile("empty_user.png");
-            
-
-           // Form3 form = new Form3();
-           // form.ShowDialog();
         }
 
 
@@ -81,6 +80,7 @@ namespace ADO.NET_Exam
                 but.Location = new Point(locy, 3);
                 but.Size = new Size(38, 38);
                 but.MouseClick += But_MouseClick;
+
                 paginationPanel.Controls.Add(but);
 
                 locy += 43;
@@ -412,9 +412,47 @@ namespace ADO.NET_Exam
             form.ShowDialog();
         }
 
-        private void count_within_Click(object sender, EventArgs e)
-        {
 
+        private void materialRaisedButton2_Click(object sender, EventArgs e) // sort by price
+        {
+            using (ShopEntities db = new ShopEntities())
+            {
+                if (currSort == Currsort.Asc)
+                {
+                    var filtered = (from b in db.Books
+                                    where b.Title.Contains(search_field.Text)
+                                          && b.IsDeleted != true
+                                    orderby b.Price
+                                    select b)
+                                    .Include("Authors")
+                                    .Include("Genres")
+                                    .ToList();
+                    BooksSet = filtered;
+
+                    sort_price_but.Text = "▼";
+                    currSort = Currsort.Desc;
+                }
+                else if (currSort == Currsort.Desc)
+                {
+                    var filtered = (from b in db.Books
+                                    where b.Title.Contains(search_field.Text)
+                                          && b.IsDeleted != true
+                                    orderby b.Price descending
+                                    select b)
+                                    .Include("Authors")
+                                    .Include("Genres")
+                                    .ToList();
+                    BooksSet = filtered;
+
+                    sort_price_but.Text = "▲";
+                    currSort = Currsort.Asc;
+                }
+
+
+
+                paginationPanel.Controls.Clear();
+                ShowPageOfBooks(BooksSet);
+            }
         }
     } 
 }
